@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Sitesi Katalog</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #222; }
+
+  .header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: white;
+    text-align: center;
+    padding: 50px 20px 40px;
+  }
+  .header h1 { font-size: 2.2em; font-weight: 700; letter-spacing: 1px; }
+  .header p { margin-top: 10px; color: #aab; font-size: 1.1em; }
+
+  .badges {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85em;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+  }
+
+  .card-preview {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-preview .mock {
+    background: rgba(255,255,255,0.15);
+    border-radius: 10px;
+    padding: 15px 20px;
+    width: 85%;
+    backdrop-filter: blur(4px);
+  }
+  .mock-title {
+    font-size: 1em;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .mock-line {
+    height: 7px;
+    background: rgba(255,255,255,0.4);
+    border-radius: 4px;
+    margin: 5px 0;
+  }
+  .mock-line.short { width: 60%; }
+  .mock-line.medium { width: 80%; }
+  .mock-line.full { width: 100%; }
+  .mock-btn {
+    display: inline-block;
+    background: rgba(255,255,255,0.9);
+    border-radius: 6px;
+    padding: 5px 14px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-top: 8px;
+  }
+  .card-num {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    background: rgba(0,0,0,0.3);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 700;
+  }
+
+  .card-body { padding: 20px; }
+  .card-emoji { font-size: 1.6em; margin-bottom: 6px; }
+  .card-name { font-size: 1.1em; font-weight: 700; margin-bottom: 4px; }
+  .card-desc { font-size: 0.85em; color: #666; margin-bottom: 14px; line-height: 1.5; }
+
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .feature {
+    background: #f0f2f5;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.75em;
+    color: #444;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 14px;
+  }
+  .card-target { font-size: 0.8em; color: #888; }
+  .card-tag {
+    font-size: 0.75em;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+  }
+
+  /* Renkler */
+  .c1 { background: linear-gradient(135deg, #1a1a2e, #2d3561); }
+  .c2 { background: linear-gradient(135deg, #5c3317, #8b5e3c); }
+  .c3 { background: linear-gradient(135deg, #b71c1c, #e53935); }
+  .c4 { background: linear-gradient(135deg, #263238, #37474f); }
+  .c5 { background: linear-gradient(135deg, #ad1457, #e91e8c); }
+  .c6 { background: linear-gradient(135deg, #880e4f, #c2185b); }
+  .c7 { background: linear-gradient(135deg, #0d47a1, #1565c0); }
+  .c8 { background: linear-gradient(135deg, #1b5e20, #2e7d32); }
+
+  .t1 { background: #1a1a2e; }
+  .t2 { background: #5c3317; }
+  .t3 { background: #b71c1c; }
+  .t4 { background: #263238; }
+  .t5 { background: #ad1457; }
+  .t6 { background: #880e4f; }
+  .t7 { background: #0d47a1; }
+  .t8 { background: #1b5e20; }
+
+  .mock-btn.t1 { color: #1a1a2e; }
+  .mock-btn.t2 { color: #5c3317; }
+  .mock-btn.t3 { color: #b71c1c; }
+  .mock-btn.t4 { color: #263238; }
+  .mock-btn.t5 { color: #ad1457; }
+  .mock-btn.t6 { color: #880e4f; }
+  .mock-btn.t7 { color: #0d47a1; }
+  .mock-btn.t8 { color: #1b5e20; }
+
+  .ozel {
+    background: linear-gradient(135deg, #f57f17, #ff8f00);
+    margin: 0 20px 40px;
+    border-radius: 16px;
+    padding: 30px;
+    color: white;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+  }
+  .ozel h2 { font-size: 1.3em; margin-bottom: 8px; }
+  .ozel p { opacity: 0.9; font-size: 0.95em; line-height: 1.6; }
+
+  .footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.85em;
+    border-top: 1px solid #ddd;
+    background: white;
+  }
+
+  @media (max-width: 600px) {
+    .header h1 { font-size: 1.6em; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🌐 Web Sitesi Katalog</h1>
+  <p>İşletmenize uygun şablonu seçin — 3 günde hazır</p>
+  <div class="badges">
+    <span class="badge">✓ Mobil Uyumlu</span>
+    <span class="badge">✓ Admin Paneli</span>
+    <span class="badge">✓ WhatsApp Butonu</span>
+    <span class="badge">✓ Sınırsız Güncelleme</span>
+  </div>
+</div>
+
+<div class="grid">
+
+  <!-- 1 BERBER -->
+  <div class="card">
+    <div class="card-preview c1">
+      <span class="card-num">1</span>
+      <div class="mock">
+        <div class="mock-title">✂ BERBER ALİ</div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t1">Randevu Al</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">✂️</div>
+      <div class="card-name">Berber & Kuaför</div>
+      <div class="card-desc">Lacivert ve altın rengi şık tasarım. Müşteriler WhatsApp'tan randevu alır, fiyatlarınız ve fotoğraflarınız öne çıkar.</div>
+      <div class="features">
+        <span class="feature">Hizmet & Fiyat</span>
+        <span class="feature">Randevu Butonu</span>
+        <span class="feature">Fotoğraf Galerisi</span>
+        <span class="feature">Çalışma Saatleri</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Berber, Erkek Kuaförü</span>
+        <a href="sablon-1-berber.html" target="_blank" class="card-tag t1" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 KAFE -->
+  <div class="card">
+    <div class="card-preview c2">
+      <span class="card-num">2</span>
+      <div class="mock">
+        <div class="mock-title">☕ CAFE DENİZ</div>
+        <div class="mock-line full"></div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t2">Menüyü Gör</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">☕</div>
+      <div class="card-name">Kafe & Kahvehane</div>
+      <div class="card-desc">Sıcak kahverengi tonlar. Menünüz, fotoğraflarınız ve konumunuz ön planda. Müşteriler Google'dan kolayca bulur.</div>
+      <div class="features">
+        <span class="feature">Dijital Menü</span>
+        <span class="feature">Fotoğraf Galerisi</span>
+        <span class="feature">Google Yorum</span>
+
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Kafe, Çay Bahçesi</span>
+        <a href="sablon-2-kafe.html" target="_blank" class="card-tag t2" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 RESTORAN -->
+  <div class="card">
+    <div class="card-preview c3">
+      <span class="card-num">3</span>
+      <div class="mock">
+        <div class="mock-title">🍽 LOKANTA MEHMET</div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line full"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t3">Günlük Menü</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">🍽️</div>
+      <div class="card-name">Restoran & Lokanta</div>
+      <div class="card-desc">Kırmızı ve beyaz enerjik tasarım. Günlük menünüzü kendiniz güncellersiniz, müşteriler her sabah bakar.</div>
+      <div class="features">
+        <span class="feature">Günlük Menü</span>
+        <span class="feature">Fiyat Listesi</span>
+        <span class="feature">Yol Tarifi</span>
+        <span class="feature">Telefon</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Restoran, Kebapçı, Pide</span>
+        <a href="sablon-3-restoran.html" target="_blank" class="card-tag t3" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 OTO -->
+  <div class="card">
+    <div class="card-preview c4">
+      <span class="card-num">4</span>
+      <div class="mock">
+        <div class="mock-title">🔧 USTA GARAJI</div>
+        <div class="mock-line full"></div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t4">Hemen Ara</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">🔧</div>
+      <div class="card-name">Oto Tamirci & Servis</div>
+      <div class="card-desc">Koyu ve güçlü tasarım. "Hemen Ara" butonu müşteriyi direkt arar. Hizmetleriniz ve çalışma saatleriniz net görünür.</div>
+      <div class="features">
+        <span class="feature">Acil Ara Butonu</span>
+        <span class="feature">Hizmet Listesi</span>
+        <span class="feature">Çalışma Saati</span>
+
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Tamirci, Lastikçi, Elektrikçi</span>
+        <a href="sablon-4-oto.html" target="_blank" class="card-tag t4" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 PASTANE -->
+  <div class="card">
+    <div class="card-preview c5">
+      <span class="card-num">5</span>
+      <div class="mock">
+        <div class="mock-title">🎂 PASTANE RÜYA</div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line full"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t5">Sipariş Ver</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">🎂</div>
+      <div class="card-name">Pastane & Fırın</div>
+      <div class="card-desc">Pembe ve şık tasarım. Ürün fotoğrafları büyük gösterilir. Özel gün siparişleri WhatsApp'tan gelir.</div>
+      <div class="features">
+        <span class="feature">Ürün Galerisi</span>
+        <span class="feature">WhatsApp Sipariş</span>
+        <span class="feature">Özel Gün</span>
+        <span class="feature">Fiyatlar</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Pastane, Fırın, Tatlıcı</span>
+        <a href="sablon-5-pastane.html" target="_blank" class="card-tag t5" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 GÜZELLIK -->
+  <div class="card">
+    <div class="card-preview c6">
+      <span class="card-num">6</span>
+      <div class="mock">
+        <div class="mock-title">💅 SALON AFRODİT</div>
+        <div class="mock-line full"></div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t6">Randevu Al</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">💅</div>
+      <div class="card-name">Güzellik Salonu & Spa</div>
+      <div class="card-desc">Şık ve feminen tasarım. Hizmet fiyatları net görünür, randevular WhatsApp'tan alınır, galeri büyük fotoğraflarla dikkat çeker.</div>
+      <div class="features">
+        <span class="feature">Hizmet & Fiyat</span>
+        <span class="feature">Randevu WhatsApp</span>
+        <span class="feature">Galeri</span>
+        <span class="feature">Saatler</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Kuaför, Tırnak, Masaj, Spa</span>
+        <a href="sablon-6-guzellik.html" target="_blank" class="card-tag t6" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 EMLAK -->
+  <div class="card">
+    <div class="card-preview c7">
+      <span class="card-num">7</span>
+      <div class="mock">
+        <div class="mock-title">🏠 ANTALYA EMLAK</div>
+        <div class="mock-line full"></div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t7">İlanları Gör</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">🏠</div>
+      <div class="card-name">Emlakçı</div>
+      <div class="card-desc">Güvenilir lacivert tasarım. İlanlarınızı kolayca ekler, fiyat ve özelliklerini güncellersiniz. Müşteriler direkt arar.</div>
+      <div class="features">
+        <span class="feature">İlan Galerisi</span>
+        <span class="feature">Fiyat & Detaylar</span>
+        <span class="feature">İletişim</span>
+        <span class="feature">Ofis Konumu</span>
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Emlak Ofisi</span>
+        <a href="sablon-7-emlak.html" target="_blank" class="card-tag t7" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8 GENEL -->
+  <div class="card">
+    <div class="card-preview c8">
+      <span class="card-num">8</span>
+      <div class="mock">
+        <div class="mock-title">🏪 İŞLETME ADI</div>
+        <div class="mock-line full"></div>
+        <div class="mock-line medium"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-btn t8">İletişim</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="card-emoji">🏪</div>
+      <div class="card-name">Genel İşletme</div>
+      <div class="card-desc">Her işletmeye uyarlanır. Listede yoksa bu şablon kullanılır. Renk ve içerik tamamen sizin tercihlerinize göre ayarlanır.</div>
+      <div class="features">
+        <span class="feature">Hizmetler</span>
+        <span class="feature">Hakkımızda</span>
+        <span class="feature">İletişim</span>
+
+      </div>
+      <div class="card-footer">
+        <span class="card-target">Her Sektör</span>
+        <a href="sablon-8-genel.html" target="_blank" class="card-tag t8" style="text-decoration:none;">Önizle →</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ÖZEL TASARIM -->
+<div style="max-width:1200px; margin: 0 auto 40px; padding: 0 20px;">
+  <div style="background: linear-gradient(135deg, #f57f17, #ff8f00); border-radius: 16px; padding: 30px; color: white;">
+    <h2 style="font-size:1.3em; margin-bottom:10px;">✨ Yukarıdakileri Beğenmediniz mi?</h2>
+    <p style="opacity:0.95; line-height:1.7;">
+      Farklı bir renk, farklı bir düzen veya tamamen özel bir tasarım istiyorsanız — bize söyleyin, sizin için özel yapıyoruz.<br>
+      <strong>Beğendiğiniz bir siteyi gösterin, benzerini yapalım.</strong>
+    </p>
+  </div>
+</div>
+
+<div class="footer">
+  Tüm şablonlarda: Mobil Uyumlu • Admin Paneli • WhatsApp Butonu • Hızlı Yükleme
+</div>
+
+</body>
+</html>

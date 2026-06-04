@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berber Ali</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;color:#222;}
+:root{--ana:#1a1a2e;--vurgu:#c9a84c;}
+
+header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-size:1.2em;letter-spacing:1px;}
+header a{color:var(--vurgu);text-decoration:none;font-weight:600;font-size:0.9em;border:1px solid var(--vurgu);padding:6px 14px;border-radius:20px;}
+
+.hero{background:linear-gradient(135deg,#1a1a2e,#2d3561);color:white;text-align:center;padding:60px 20px;}
+.hero h2{font-size:2em;margin-bottom:10px;}
+.hero p{color:#aab;margin-bottom:25px;font-size:1.05em;}
+.hero-btn{background:var(--vurgu);color:#1a1a2e;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1em;}
+
+.section{max-width:700px;margin:40px auto;padding:0 20px;}
+.section h3{font-size:1.2em;font-weight:700;margin-bottom:20px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+
+.hizmet-liste{display:flex;flex-direction:column;gap:12px;}
+.hizmet{background:white;border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.hizmet-ad{font-weight:600;}
+.hizmet-fiyat{background:var(--ana);color:var(--vurgu);padding:4px 14px;border-radius:20px;font-weight:700;font-size:0.9em;}
+
+.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
+.g1{background:#e8e0d5;}
+.g2{background:#d5dce8;}
+.g3{background:#e8d5d5;}
+.g4{background:#d5e8d5;}
+.g5{background:#e8e8d5;}
+.g6{background:#e8d5e8;}
+
+.saatler{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.saat-satir{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:0.95em;}
+.saat-satir:last-child{border-bottom:none;}
+.acik{color:#2e7d32;font-weight:600;}
+.kapali{color:#c62828;}
+
+.iletisim-box{background:var(--ana);color:white;border-radius:12px;padding:25px;text-align:center;}
+.iletisim-box p{color:#aab;margin-bottom:6px;font-size:0.9em;}
+.iletisim-box h4{font-size:1.3em;margin-bottom:20px;}
+.ara-btn{display:inline-block;background:var(--vurgu);color:var(--ana);padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;margin:5px;}
+
+.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+
+footer{background:var(--ana);color:#888;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>✂ BERBER ALİ</h1>
+  <a href="https://wa.me/905321234567">Randevu Al</a>
+</header>
+
+<div class="hero">
+  <h2>Antalya'nın En İyi Tıraşı</h2>
+  <p>20 yıllık deneyim, modern teknikler</p>
+  <a href="https://wa.me/905321234567" class="hero-btn">WhatsApp'tan Randevu Al</a>
+</div>
+
+<div class="section">
+  <h3>Hizmetler & Fiyatlar</h3>
+  <div class="hizmet-liste">
+    <div class="hizmet"><span class="hizmet-ad">Saç + Sakal</span><span class="hizmet-fiyat">250₺</span></div>
+    <div class="hizmet"><span class="hizmet-ad">Saç Kesimi</span><span class="hizmet-fiyat">150₺</span></div>
+    <div class="hizmet"><span class="hizmet-ad">Sakal Düzeltme</span><span class="hizmet-fiyat">100₺</span></div>
+    <div class="hizmet"><span class="hizmet-ad">Çocuk Kesimi</span><span class="hizmet-fiyat">100₺</span></div>
+    <div class="hizmet"><span class="hizmet-ad">Fön</span><span class="hizmet-fiyat">80₺</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Galeri</h3>
+  <div class="galeri">
+    <div class="galeri-item g1">💈</div>
+    <div class="galeri-item g2">✂️</div>
+    <div class="galeri-item g3">🪒</div>
+    <div class="galeri-item g4">💈</div>
+    <div class="galeri-item g5">✂️</div>
+    <div class="galeri-item g6">🪒</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Çalışma Saatleri</h3>
+  <div class="saatler">
+    <div class="saat-satir"><span>Pazartesi – Cuma</span><span class="acik">08:00 – 20:00</span></div>
+    <div class="saat-satir"><span>Cumartesi</span><span class="acik">08:00 – 18:00</span></div>
+    <div class="saat-satir"><span>Pazar</span><span class="kapali">Kapalı</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>İletişim</h3>
+  <div class="iletisim-box">
+    <p>Adres</p>
+    <h4>Muratpaşa, Antalya</h4>
+    <a href="tel:05321234567" class="ara-btn">📞 Ara</a>
+    <a href="https://wa.me/905321234567" class="ara-btn">💬 WhatsApp</a>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+
+<footer>© 2025 Berber Ali — Tüm hakları saklıdır</footer>
+
+</body>
+</html>

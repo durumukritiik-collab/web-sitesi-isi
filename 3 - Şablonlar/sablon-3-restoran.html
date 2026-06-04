@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lokanta Mehmet</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#fff5f5;color:#222;}
+:root{--ana:#b71c1c;--vurgu:#ff8f00;}
+
+header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-size:1.2em;}
+header span{font-size:0.8em;color:#ffcdd2;}
+
+.hero{background:linear-gradient(135deg,#b71c1c,#e53935);color:white;text-align:center;padding:50px 20px;}
+.hero h2{font-size:2em;margin-bottom:8px;}
+.hero p{color:#ffcdd2;margin-bottom:20px;}
+.hero-btn{background:var(--vurgu);color:white;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+
+.bugun{background:white;max-width:700px;margin:30px auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:0 20px;}
+.bugun-header{background:var(--ana);color:white;padding:14px 20px;margin:0 -20px;display:flex;justify-content:space-between;align-items:center;}
+.bugun-header h3{font-size:1em;font-weight:700;}
+.tarih{font-size:0.8em;color:#ffcdd2;}
+.menu-item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f5f5f5;align-items:center;}
+.menu-item:last-child{border-bottom:none;}
+.menu-ad{font-weight:600;}
+.menu-alt{font-size:0.8em;color:#888;margin-top:3px;}
+.menu-fiyat{font-weight:700;color:var(--ana);font-size:1.05em;}
+
+.section{max-width:700px;margin:25px auto;padding:0 20px;}
+.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+
+.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
+.g1{background:#ffe0e0;} .g2{background:#fff3e0;} .g3{background:#e8f5e9;}
+.g4{background:#fce4ec;} .g5{background:#f3e5f5;} .g6{background:#e3f2fd;}
+
+.bilgi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bilgi-kart{background:white;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.bilgi-icon{font-size:1.8em;margin-bottom:8px;}
+.bilgi-baslik{font-size:0.75em;color:#888;text-transform:uppercase;letter-spacing:1px;}
+.bilgi-deger{font-size:0.95em;font-weight:600;margin-top:4px;}
+
+.btn-grup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:25px;}
+.btn{display:inline-block;padding:13px 28px;border-radius:25px;text-decoration:none;font-weight:700;font-size:0.95em;}
+.btn-ana{background:var(--ana);color:white;}
+.btn-wp{background:#25d366;color:white;}
+
+.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+footer{background:var(--ana);color:#ffcdd2;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🍽 LOKANTA MEHMET</h1>
+  <span>Ev yemeğinin adresi</span>
+</header>
+
+<div class="hero">
+  <h2>Annenizin Elinden Çıkmış Gibi</h2>
+  <p>Günlük taze, doğal malzeme, uygun fiyat</p>
+  <a href="#gunluk" class="hero-btn">Bugünkü Menü</a>
+</div>
+
+<div id="gunluk" class="bugun" style="margin-top:30px;">
+  <div class="bugun-header">
+    <h3>🍀 Bugünkü Menü</h3>
+    <span class="tarih">Her gün güncellenir</span>
+  </div>
+  <div style="padding:5px 0;">
+    <div class="menu-item"><div><div class="menu-ad">Mercimek Çorbası</div></div><span class="menu-fiyat">65₺</span></div>
+    <div class="menu-item"><div><div class="menu-ad">Kuru Fasulye + Pilav</div><div class="menu-alt">Turşu dahil</div></div><span class="menu-fiyat">120₺</span></div>
+    <div class="menu-item"><div><div class="menu-ad">Izgara Köfte</div><div class="menu-alt">Salata + ekmek</div></div><span class="menu-fiyat">180₺</span></div>
+    <div class="menu-item"><div><div class="menu-ad">Tavuk Sote</div></div><span class="menu-fiyat">150₺</span></div>
+    <div class="menu-item"><div><div class="menu-ad">Sütlaç</div></div><span class="menu-fiyat">65₺</span></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Fotoğraflar</h3>
+  <div class="galeri">
+    <div class="galeri-item g1">🍲</div>
+    <div class="galeri-item g2">🥘</div>
+    <div class="galeri-item g3">🥗</div>
+    <div class="galeri-item g4">🍖</div>
+    <div class="galeri-item g5">🍚</div>
+    <div class="galeri-item g6">🍮</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Bilgiler</h3>
+  <div class="bilgi-grid">
+    <div class="bilgi-kart"><div class="bilgi-icon">🕐</div><div class="bilgi-baslik">Çalışma Saati</div><div class="bilgi-deger">11:00 – 21:00</div></div>
+    <div class="bilgi-kart"><div class="bilgi-icon">📍</div><div class="bilgi-baslik">Adres</div><div class="bilgi-deger">Muratpaşa, Antalya</div></div>
+    <div class="bilgi-kart"><div class="bilgi-icon">📞</div><div class="bilgi-baslik">Telefon</div><div class="bilgi-deger">0532 123 45 67</div></div>
+    <div class="bilgi-kart"><div class="bilgi-icon">🅿️</div><div class="bilgi-baslik">Otopark</div><div class="bilgi-deger">Ücretsiz</div></div>
+  </div>
+  <div class="btn-grup">
+    <a href="tel:05321234567" class="btn btn-ana">📞 Ara</a>
+    <a href="https://wa.me/905321234567" class="btn btn-wp">💬 WhatsApp</a>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+<footer>© 2025 Lokanta Mehmet — Antalya</footer>
+</body>
+</html>

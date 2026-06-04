@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Usta Garajı</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f0f0f0;color:#222;}
+:root{--ana:#263238;--vurgu:#ff6f00;}
+
+header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-size:1.2em;}
+.acil-btn{background:var(--vurgu);color:white;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:700;font-size:0.9em;}
+
+.hero{background:linear-gradient(135deg,#263238,#37474f);color:white;text-align:center;padding:50px 20px;}
+.hero h2{font-size:1.9em;margin-bottom:8px;}
+.hero p{color:#90a4ae;margin-bottom:25px;}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.btn-turuncu{background:var(--vurgu);color:white;padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+.btn-beyaz{background:white;color:var(--ana);padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+
+.section{max-width:700px;margin:30px auto;padding:0 20px;}
+.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+
+.hizmet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hizmet-kart{background:white;border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.hizmet-icon{font-size:2em;margin-bottom:10px;}
+.hizmet-ad{font-weight:700;font-size:0.95em;margin-bottom:5px;}
+.hizmet-alt{font-size:0.8em;color:#888;}
+
+.banner{background:var(--vurgu);color:white;text-align:center;padding:25px 20px;max-width:700px;margin:0 auto;border-radius:16px;}
+.banner h3{font-size:1.2em;margin-bottom:8px;}
+.banner p{opacity:0.9;margin-bottom:18px;font-size:0.95em;}
+.banner a{background:white;color:var(--vurgu);padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;}
+
+.bilgi-liste{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.bilgi-satir{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f5f5f5;}
+.bilgi-satir:last-child{border-bottom:none;}
+.bilgi-icon{font-size:1.4em;width:36px;text-align:center;}
+.bilgi-text h4{font-size:0.9em;font-weight:700;}
+.bilgi-text p{font-size:0.85em;color:#666;margin-top:2px;}
+
+.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+footer{background:var(--ana);color:#607d8b;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🔧 USTA GARAJI</h1>
+  <a href="tel:05321234567" class="acil-btn">📞 Acil Ara</a>
+</header>
+
+<div class="hero">
+  <h2>Aracınız Güvende</h2>
+  <p>25 yıllık tecrübe, garantili işçilik</p>
+  <div class="hero-btns">
+    <a href="tel:05321234567" class="btn-turuncu">📞 Hemen Ara</a>
+    <a href="https://wa.me/905321234567" class="btn-beyaz">💬 WhatsApp</a>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Hizmetlerimiz</h3>
+  <div class="hizmet-grid">
+    <div class="hizmet-kart"><div class="hizmet-icon">🔧</div><div class="hizmet-ad">Motor Bakım</div><div class="hizmet-alt">Periyodik bakım</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">🛞</div><div class="hizmet-ad">Lastik</div><div class="hizmet-alt">Değişim & tamir</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">⚡</div><div class="hizmet-ad">Elektrik</div><div class="hizmet-alt">Arıza tespit</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">🛑</div><div class="hizmet-ad">Fren Sistemi</div><div class="hizmet-alt">Balata & disk</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">❄️</div><div class="hizmet-ad">Klima</div><div class="hizmet-alt">Bakım & gaz</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">🔍</div><div class="hizmet-ad">Arıza Tespit</div><div class="hizmet-alt">Bilgisayar testi</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="banner">
+    <h3>🚗 Yol Yardımı</h3>
+    <p>Araç arızalandı mı? Sizi arayalım, çözüm bulalım.</p>
+    <a href="tel:05321234567">Hemen Ara</a>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Bilgiler</h3>
+  <div class="bilgi-liste">
+    <div class="bilgi-satir"><div class="bilgi-icon">🕐</div><div class="bilgi-text"><h4>Çalışma Saatleri</h4><p>Pzt–Cmt: 08:00–19:00 / Pazar kapalı</p></div></div>
+    <div class="bilgi-satir"><div class="bilgi-icon">📍</div><div class="bilgi-text"><h4>Adres</h4><p>Kepez Sanayi Sitesi, Antalya</p></div></div>
+    <div class="bilgi-satir"><div class="bilgi-icon">📞</div><div class="bilgi-text"><h4>Telefon</h4><p>0532 123 45 67</p></div></div>
+    <div class="bilgi-satir"><div class="bilgi-icon">✅</div><div class="bilgi-text"><h4>Garanti</h4><p>Tüm işçilik 6 ay garantili</p></div></div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+<footer>© 2025 Usta Garajı — Antalya</footer>
+</body>
+</html>

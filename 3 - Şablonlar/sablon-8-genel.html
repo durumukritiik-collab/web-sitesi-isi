@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İşletme Adı</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;color:#222;}
+:root{--ana:#2e7d32;--vurgu:#66bb6a;}
+
+header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-size:1.2em;}
+header a{background:var(--vurgu);color:white;padding:7px 16px;border-radius:20px;text-decoration:none;font-weight:600;font-size:0.85em;}
+
+.hero{background:linear-gradient(135deg,#1b5e20,#2e7d32);color:white;text-align:center;padding:55px 20px;}
+.hero h2{font-size:2em;margin-bottom:10px;}
+.hero p{color:#a5d6a7;margin-bottom:24px;font-size:1.05em;}
+.hero-btn{background:white;color:var(--ana);padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:700;}
+
+.section{max-width:700px;margin:30px auto;padding:0 20px;}
+.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+
+.hakkimizda{background:white;border-radius:14px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);line-height:1.7;color:#444;}
+
+.hizmet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hizmet-kart{background:white;border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.hizmet-icon{font-size:2em;margin-bottom:10px;}
+.hizmet-ad{font-weight:700;font-size:0.95em;}
+.hizmet-alt{font-size:0.8em;color:#888;margin-top:4px;}
+
+.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
+.g1{background:#e8f5e9;} .g2{background:#f1f8e9;} .g3{background:#e0f2f1;}
+.g4{background:#e8eaf6;} .g5{background:#fce4ec;} .g6{background:#fff8e1;}
+
+.bilgi-liste{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.bilgi-satir{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f0f0f0;}
+.bilgi-satir:last-child{border-bottom:none;}
+.bilgi-icon{font-size:1.4em;width:36px;text-align:center;}
+.bilgi-text h4{font-size:0.9em;font-weight:700;}
+.bilgi-text p{font-size:0.85em;color:#666;margin-top:2px;}
+
+.btn-grup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
+.btn{display:inline-block;padding:13px 28px;border-radius:25px;text-decoration:none;font-weight:700;}
+.btn-ana{background:var(--ana);color:white;}
+.btn-wp{background:#25d366;color:white;}
+
+.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+footer{background:var(--ana);color:#a5d6a7;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🏪 İŞLETME ADI</h1>
+  <a href="https://wa.me/905321234567">İletişim</a>
+</header>
+
+<div class="hero">
+  <h2>Sloganınız Buraya</h2>
+  <p>Kısa bir tanıtım cümlesi — ne yaptığınızı anlatan bir cümle</p>
+  <a href="https://wa.me/905321234567" class="hero-btn">Bize Ulaşın</a>
+</div>
+
+<div class="section">
+  <h3>Hakkımızda</h3>
+  <div class="hakkimizda">
+    İşletmenizin hikayesi buraya gelir. Kaç yıldır faaliyet gösterdiğiniz, ne tür hizmetler sunduğunuz, müşterilerinize neden güvenilir bir tercih olduğunuz gibi bilgiler burada yer alır.
+  </div>
+</div>
+
+<div class="section">
+  <h3>Hizmetlerimiz</h3>
+  <div class="hizmet-grid">
+    <div class="hizmet-kart"><div class="hizmet-icon">⭐</div><div class="hizmet-ad">Hizmet 1</div><div class="hizmet-alt">Açıklama</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">🔑</div><div class="hizmet-ad">Hizmet 2</div><div class="hizmet-alt">Açıklama</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">💎</div><div class="hizmet-ad">Hizmet 3</div><div class="hizmet-alt">Açıklama</div></div>
+    <div class="hizmet-kart"><div class="hizmet-icon">🤝</div><div class="hizmet-ad">Hizmet 4</div><div class="hizmet-alt">Açıklama</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Galeri</h3>
+  <div class="galeri">
+    <div class="galeri-item g1">📸</div>
+    <div class="galeri-item g2">📸</div>
+    <div class="galeri-item g3">📸</div>
+    <div class="galeri-item g4">📸</div>
+    <div class="galeri-item g5">📸</div>
+    <div class="galeri-item g6">📸</div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Bilgiler</h3>
+  <div class="bilgi-liste">
+    <div class="bilgi-satir"><div class="bilgi-icon">🕐</div><div class="bilgi-text"><h4>Çalışma Saatleri</h4><p>Pzt–Cmt: 09:00–18:00</p></div></div>
+    <div class="bilgi-satir"><div class="bilgi-icon">📍</div><div class="bilgi-text"><h4>Adres</h4><p>Antalya</p></div></div>
+    <div class="bilgi-satir"><div class="bilgi-icon">📞</div><div class="bilgi-text"><h4>Telefon</h4><p>0532 123 45 67</p></div></div>
+  </div>
+  <div class="btn-grup">
+    <a href="tel:05321234567" class="btn btn-ana">📞 Ara</a>
+    <a href="https://wa.me/905321234567" class="btn btn-wp">💬 WhatsApp</a>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+<footer>© 2025 İşletme Adı — Antalya</footer>
+</body>
+</html>

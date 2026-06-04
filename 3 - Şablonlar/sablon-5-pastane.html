@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pastane Rüya</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:#fff0f6;color:#222;}
+:root{--ana:#880e4f;--vurgu:#f8bbd0;}
+
+header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+header h1{font-size:1.2em;}
+header span{font-size:0.8em;color:var(--vurgu);}
+
+.hero{background:linear-gradient(135deg,#880e4f,#c2185b);color:white;text-align:center;padding:55px 20px;}
+.hero h2{font-size:2em;margin-bottom:8px;}
+.hero p{color:#f8bbd0;margin-bottom:22px;}
+.hero-btn{background:white;color:var(--ana);padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+
+.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:700px;margin:25px auto;padding:0 20px;}
+.galeri-item{aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2.8em;}
+.g1{background:#fce4ec;} .g2{background:#f8bbd0;} .g3{background:#fce4ec;}
+.g4{background:#f8bbd0;} .g5{background:#fce4ec;} .g6{background:#f8bbd0;}
+
+.section{max-width:700px;margin:25px auto;padding:0 20px;}
+.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--ana);padding-left:12px;}
+
+.urun-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.urun-kart{background:white;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(136,14,79,0.08);text-align:center;}
+.urun-emoji{font-size:2.2em;margin-bottom:8px;}
+.urun-ad{font-weight:700;font-size:0.95em;margin-bottom:4px;}
+.urun-fiyat{color:var(--ana);font-weight:700;font-size:1em;}
+.urun-alt{font-size:0.78em;color:#888;margin-top:3px;}
+
+.siparis-banner{background:linear-gradient(135deg,#880e4f,#c2185b);color:white;border-radius:16px;padding:28px;text-align:center;}
+.siparis-banner h3{font-size:1.2em;margin-bottom:10px;}
+.siparis-banner p{opacity:0.9;margin-bottom:18px;font-size:0.95em;line-height:1.5;}
+.siparis-banner a{background:white;color:var(--ana);padding:13px 30px;border-radius:25px;text-decoration:none;font-weight:700;display:inline-block;}
+
+.saatler{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
+.saat-satir{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #fce4ec;font-size:0.95em;}
+.saat-satir:last-child{border-bottom:none;}
+.acik{color:#2e7d32;font-weight:600;}
+
+.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+footer{background:var(--ana);color:#f8bbd0;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🎂 PASTANE RÜYA</h1>
+  <span>Özel günleriniz için</span>
+</header>
+
+<div class="hero">
+  <h2>Her Dilimde Mutluluk</h2>
+  <p>El yapımı pastalar, taze malzeme, özel tasarım</p>
+  <a href="https://wa.me/905321234567" class="hero-btn">Sipariş Ver</a>
+</div>
+
+<div class="galeri">
+  <div class="galeri-item g1">🎂</div>
+  <div class="galeri-item g2">🧁</div>
+  <div class="galeri-item g3">🍰</div>
+  <div class="galeri-item g4">🍮</div>
+  <div class="galeri-item g5">🥐</div>
+  <div class="galeri-item g6">🍩</div>
+</div>
+
+<div class="section">
+  <h3>Ürünlerimiz</h3>
+  <div class="urun-grid">
+    <div class="urun-kart"><div class="urun-emoji">🎂</div><div class="urun-ad">Doğum Günü Pastası</div><div class="urun-fiyat">800₺'den başlayan</div><div class="urun-alt">Özel tasarım</div></div>
+    <div class="urun-kart"><div class="urun-emoji">💒</div><div class="urun-ad">Düğün Pastası</div><div class="urun-fiyat">Fiyat alın</div><div class="urun-alt">Kişiye özel</div></div>
+    <div class="urun-kart"><div class="urun-emoji">🧁</div><div class="urun-ad">Cupcake (12'li)</div><div class="urun-fiyat">450₺</div><div class="urun-alt">Çeşitli tatlar</div></div>
+    <div class="urun-kart"><div class="urun-emoji">🍰</div><div class="urun-ad">Günlük Pasta</div><div class="urun-fiyat">85₺/dilim</div><div class="urun-alt">Her gün taze</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="siparis-banner">
+    <h3>🎁 Özel Sipariş</h3>
+    <p>Doğum günü, nişan, düğün veya özel gün pastanız için bize WhatsApp'tan yazın.</p>
+    <a href="https://wa.me/905321234567">💬 WhatsApp'tan Sipariş Ver</a>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Çalışma Saatleri</h3>
+  <div class="saatler">
+    <div class="saat-satir"><span>Pazartesi – Cumartesi</span><span class="acik">09:00 – 20:00</span></div>
+    <div class="saat-satir"><span>Pazar</span><span class="acik">10:00 – 18:00</span></div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+<footer>© 2025 Pastane Rüya — Antalya</footer>
+</body>
+</html>
