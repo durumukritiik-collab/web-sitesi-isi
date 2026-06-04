@@ -3,108 +3,176 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokanta Mehmet</title>
+<title>Lokanta Mehmet — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#fff5f5;color:#222;}
-:root{--ana:#b71c1c;--vurgu:#ff8f00;}
+:root{--koyu:#1a0505;--kirmizi:#b71c1c;--turuncu:#e65100;--krem:#fff8f5;}
+body{font-family:'Inter',sans-serif;background:var(--krem);color:#1a1a1a;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(26,5,5,.95);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4em;color:white;letter-spacing:1px;}
+.logo span{color:#ff8a65;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:#ff8a65;}
+.nav-btn{background:var(--kirmizi);color:white!important;padding:9px 22px;border-radius:25px;font-weight:600!important;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;}
-header span{font-size:0.8em;color:#ffcdd2;}
+.hero{height:100vh;min-height:600px;background:linear-gradient(160deg,#1a0505 0%,#3b0d0d 55%,#1a0505 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;width:55%;height:100%;background:radial-gradient(ellipse at right,rgba(183,28,28,.15) 0%,transparent 65%);}
+.hero-desen{position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 40px,rgba(183,28,28,.04) 40px,rgba(183,28,28,.04) 41px),repeating-linear-gradient(90deg,transparent,transparent 40px,rgba(183,28,28,.04) 40px,rgba(183,28,28,.04) 41px);}
+.hero-ic{position:relative;z-index:2;padding:0 40px;max-width:620px;}
+.etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(183,28,28,.2);border:1px solid rgba(183,28,28,.4);color:#ff8a65;padding:7px 18px;border-radius:25px;font-size:.8em;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4em,5.5vw,3.8em);color:white;line-height:1.15;margin-bottom:18px;}
+.hero h1 em{color:#ff8a65;font-style:normal;}
+.hero p{color:rgba(255,255,255,.6);font-size:1.05em;line-height:1.8;margin-bottom:32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-k{background:linear-gradient(135deg,var(--kirmizi),#e53935);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;box-shadow:0 4px 20px rgba(183,28,28,.4);transition:transform .2s;}
+.btn-k:hover{transform:translateY(-2px);}
+.btn-o{border:1.5px solid rgba(255,255,255,.25);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:500;transition:all .2s;}
+.btn-o:hover{border-color:#ff8a65;color:#ff8a65;}
 
-.hero{background:linear-gradient(135deg,#b71c1c,#e53935);color:white;text-align:center;padding:50px 20px;}
-.hero h2{font-size:2em;margin-bottom:8px;}
-.hero p{color:#ffcdd2;margin-bottom:20px;}
-.hero-btn{background:var(--vurgu);color:white;padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+.stats{background:var(--koyu);padding:45px 40px;}
+.stats-ic{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-family:'Playfair Display',serif;font-size:2em;color:#ff8a65;margin-bottom:5px;}
+.stat p{color:rgba(255,255,255,.4);font-size:.8em;text-transform:uppercase;letter-spacing:1px;}
 
-.bugun{background:white;max-width:700px;margin:30px auto;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.08);padding:0 20px;}
-.bugun-header{background:var(--ana);color:white;padding:14px 20px;margin:0 -20px;display:flex;justify-content:space-between;align-items:center;}
-.bugun-header h3{font-size:1em;font-weight:700;}
-.tarih{font-size:0.8em;color:#ffcdd2;}
-.menu-item{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid #f5f5f5;align-items:center;}
-.menu-item:last-child{border-bottom:none;}
-.menu-ad{font-weight:600;}
-.menu-alt{font-size:0.8em;color:#888;margin-top:3px;}
-.menu-fiyat{font-weight:700;color:var(--ana);font-size:1.05em;}
+.section{padding:75px 40px;max-width:1000px;margin:0 auto;}
+.sb{text-align:center;margin-bottom:45px;}
+.se{display:inline-block;color:var(--kirmizi);font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.sb h2{font-family:'Playfair Display',serif;font-size:2.1em;color:var(--koyu);}
 
-.section{max-width:700px;margin:25px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+.bugun-box{background:var(--koyu);border-radius:24px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.15);}
+.bugun-header{background:linear-gradient(135deg,var(--kirmizi),#e53935);padding:20px 30px;display:flex;justify-content:space-between;align-items:center;}
+.bugun-header h3{font-family:'Playfair Display',serif;font-size:1.3em;color:white;}
+.tarih-badge{background:rgba(255,255,255,.15);color:white;padding:5px 14px;border-radius:15px;font-size:.8em;}
+.bugun-icerik{padding:10px 0;}
+.menu-satir{display:flex;justify-content:space-between;align-items:center;padding:16px 30px;border-bottom:1px solid rgba(255,255,255,.06);transition:background .2s;}
+.menu-satir:hover{background:rgba(255,255,255,.04);}
+.menu-satir:last-child{border:none;}
+.ms-sol h4{color:white;font-weight:500;font-size:.95em;margin-bottom:4px;}
+.ms-sol p{color:rgba(255,255,255,.4);font-size:.8em;}
+.ms-fiyat{font-family:'Playfair Display',serif;font-size:1.2em;color:#ff8a65;font-weight:600;}
 
-.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
-.g1{background:#ffe0e0;} .g2{background:#fff3e0;} .g3{background:#e8f5e9;}
-.g4{background:#fce4ec;} .g5{background:#f3e5f5;} .g6{background:#e3f2fd;}
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.gal{border-radius:16px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3em;transition:transform .3s;}
+.gal:hover{transform:scale(1.03);}
+.gal:nth-child(1){background:linear-gradient(135deg,#3b0d0d,#1a0505);}
+.gal:nth-child(2){background:linear-gradient(135deg,#3b2a0d,#1a1205);}
+.gal:nth-child(3){background:linear-gradient(135deg,#0d3b0d,#051a05);}
+.gal:nth-child(4){background:linear-gradient(135deg,#0d1a3b,#050a1a);}
+.gal:nth-child(5){background:linear-gradient(135deg,#2a0d3b,#12051a);}
+.gal:nth-child(6){background:linear-gradient(135deg,#3b3b0d,#1a1a05);}
 
-.bilgi-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.bilgi-kart{background:white;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.bilgi-icon{font-size:1.8em;margin-bottom:8px;}
-.bilgi-baslik{font-size:0.75em;color:#888;text-transform:uppercase;letter-spacing:1px;}
-.bilgi-deger{font-size:0.95em;font-weight:600;margin-top:4px;}
+.yorum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.yorum{background:white;border-radius:18px;padding:26px;box-shadow:0 3px 18px rgba(0,0,0,.06);}
+.yy{color:#ff8a65;font-size:1em;letter-spacing:3px;margin-bottom:12px;}
+.yt{color:#444;line-height:1.7;font-size:.9em;margin-bottom:16px;font-style:italic;}
+.yk{display:flex;align-items:center;gap:10px;}
+.ya{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--kirmizi),var(--turuncu));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.9em;}
+.yn{font-weight:600;font-size:.88em;}
+.yta{font-size:.76em;color:#aaa;}
 
-.btn-grup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:25px;}
-.btn{display:inline-block;padding:13px 28px;border-radius:25px;text-decoration:none;font-weight:700;font-size:0.95em;}
-.btn-ana{background:var(--ana);color:white;}
-.btn-wp{background:#25d366;color:white;}
+.bilgi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+.bilgi-kart{background:white;border-radius:18px;padding:26px;text-align:center;box-shadow:0 3px 16px rgba(0,0,0,.05);transition:transform .3s;}
+.bilgi-kart:hover{transform:translateY(-4px);}
+.bi{width:52px;height:52px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;}
+.bk1{background:linear-gradient(135deg,#1a0505,#3b0d0d);}
+.bk2{background:linear-gradient(135deg,#1b5e20,#2e7d32);}
+.bilgi-kart h4{font-weight:600;margin-bottom:5px;}
+.bilgi-kart p{font-size:.82em;color:#888;margin-bottom:14px;line-height:1.5;}
+.bb{display:inline-block;padding:9px 22px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.82em;}
+.bb1{background:var(--koyu);color:white;}
+.bb2{background:#25d366;color:white;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
-footer{background:var(--ana);color:#ffcdd2;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+.wp{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+footer{background:var(--koyu);color:rgba(255,255,255,.35);text-align:center;padding:28px;font-size:.83em;}
+footer span{color:#ff8a65;}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero-ic{padding:0 22px;}.stats-ic{grid-template-columns:repeat(2,1fr);}.section{padding:55px 20px;}.galeri-grid{grid-template-columns:repeat(2,1fr);}.yorum-grid,.bilgi-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
-<header>
-  <h1>🍽 LOKANTA MEHMET</h1>
-  <span>Ev yemeğinin adresi</span>
-</header>
-
-<div class="hero">
-  <h2>Annenizin Elinden Çıkmış Gibi</h2>
-  <p>Günlük taze, doğal malzeme, uygun fiyat</p>
-  <a href="#gunluk" class="hero-btn">Bugünkü Menü</a>
-</div>
-
-<div id="gunluk" class="bugun" style="margin-top:30px;">
-  <div class="bugun-header">
-    <h3>🍀 Bugünkü Menü</h3>
-    <span class="tarih">Her gün güncellenir</span>
+<nav id="nav">
+  <div class="logo">LOKANTA <span>MEHMET</span></div>
+  <div class="nav-links">
+    <a href="#menu">Menü</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="tel:05321234567" class="nav-btn">Rezervasyon</a>
   </div>
-  <div style="padding:5px 0;">
-    <div class="menu-item"><div><div class="menu-ad">Mercimek Çorbası</div></div><span class="menu-fiyat">65₺</span></div>
-    <div class="menu-item"><div><div class="menu-ad">Kuru Fasulye + Pilav</div><div class="menu-alt">Turşu dahil</div></div><span class="menu-fiyat">120₺</span></div>
-    <div class="menu-item"><div><div class="menu-ad">Izgara Köfte</div><div class="menu-alt">Salata + ekmek</div></div><span class="menu-fiyat">180₺</span></div>
-    <div class="menu-item"><div><div class="menu-ad">Tavuk Sote</div></div><span class="menu-fiyat">150₺</span></div>
-    <div class="menu-item"><div><div class="menu-ad">Sütlaç</div></div><span class="menu-fiyat">65₺</span></div>
-  </div>
-</div>
+</nav>
 
-<div class="section">
-  <h3>Fotoğraflar</h3>
-  <div class="galeri">
-    <div class="galeri-item g1">🍲</div>
-    <div class="galeri-item g2">🥘</div>
-    <div class="galeri-item g3">🥗</div>
-    <div class="galeri-item g4">🍖</div>
-    <div class="galeri-item g5">🍚</div>
-    <div class="galeri-item g6">🍮</div>
+<section class="hero">
+  <div class="hero-desen"></div>
+  <div class="hero-ic">
+    <div class="etiket">🍽 Antalya'nın Ev Yemeği</div>
+    <h1>Annenizin <em>Elinden</em> Çıkmış Gibi</h1>
+    <p>Günlük taze, doğal malzeme ve sevgiyle hazırlanan yemekler. Her öğle ve akşam masanızda.</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-k">Bugünkü Menü</a>
+      <a href="https://wa.me/905321234567" class="btn-o">Rezervasyon</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-ic">
+    <div class="stat"><h3>15+</h3><p>Yıl Açığız</p></div>
+    <div class="stat"><h3>Taze</h3><p>Her Gün</p></div>
+    <div class="stat"><h3>4.8★</h3><p>Google Puanı</p></div>
+    <div class="stat"><h3>11–21</h3><p>Çalışma Saati</p></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Bilgiler</h3>
+<div id="menu" class="section">
+  <div class="sb">
+    <div class="se">Bugünkü Menü</div>
+    <h2>Ne Pişirdik?</h2>
+  </div>
+  <div class="bugun-box">
+    <div class="bugun-header">
+      <h3>🍀 Günlük Menü</h3>
+      <span class="tarih-badge">Her gün güncellenir</span>
+    </div>
+    <div class="bugun-icerik">
+      <div class="menu-satir"><div class="ms-sol"><h4>Mercimek Çorbası</h4><p>Limonlu servis</p></div><span class="ms-fiyat">65₺</span></div>
+      <div class="menu-satir"><div class="ms-sol"><h4>Kuru Fasulye + Pilav</h4><p>Turşu dahil</p></div><span class="ms-fiyat">120₺</span></div>
+      <div class="menu-satir"><div class="ms-sol"><h4>Izgara Köfte</h4><p>Salata + ekmek dahil</p></div><span class="ms-fiyat">180₺</span></div>
+      <div class="menu-satir"><div class="ms-sol"><h4>Tavuk Sote</h4><p>Sebzeli</p></div><span class="ms-fiyat">150₺</span></div>
+      <div class="menu-satir"><div class="ms-sol"><h4>Sütlaç</h4><p>Fırında</p></div><span class="ms-fiyat">65₺</span></div>
+    </div>
+  </div>
+</div>
+
+<div id="galeri" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Lezzetlerimiz</div><h2>Galeri</h2></div>
+  <div class="galeri-grid">
+    <div class="gal">🍲</div><div class="gal">🥘</div><div class="gal">🥗</div>
+    <div class="gal">🍖</div><div class="gal">🍚</div><div class="gal">🍮</div>
+  </div>
+</div>
+
+<div id="yorumlar" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Müşteri Yorumları</div><h2>Ne Diyorlar?</h2></div>
+  <div class="yorum-grid">
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Yıllardır geliyorum, her zaman taze ve lezzetli. Gerçek ev yemeği tadı."</div><div class="yk"><div class="ya">H</div><div><div class="yn">Hasan K.</div><div class="yta">3 gün önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Antalya'da en iyi kuru fasulye burada. Fiyatlar da çok uygun."</div><div class="yk"><div class="ya">F</div><div><div class="yn">Fatma Y.</div><div class="yta">1 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"İş çıkışı her gün geliyorum. Porsiyon bol, personel güler yüzlü."</div><div class="yk"><div class="ya">O</div><div><div class="yn">Okan D.</div><div class="yta">2 hafta önce</div></div></div></div>
+  </div>
+</div>
+
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Bize Ulaşın</div><h2>İletişim</h2></div>
   <div class="bilgi-grid">
-    <div class="bilgi-kart"><div class="bilgi-icon">🕐</div><div class="bilgi-baslik">Çalışma Saati</div><div class="bilgi-deger">11:00 – 21:00</div></div>
-    <div class="bilgi-kart"><div class="bilgi-icon">📍</div><div class="bilgi-baslik">Adres</div><div class="bilgi-deger">Muratpaşa, Antalya</div></div>
-    <div class="bilgi-kart"><div class="bilgi-icon">📞</div><div class="bilgi-baslik">Telefon</div><div class="bilgi-deger">0532 123 45 67</div></div>
-    <div class="bilgi-kart"><div class="bilgi-icon">🅿️</div><div class="bilgi-baslik">Otopark</div><div class="bilgi-deger">Ücretsiz</div></div>
-  </div>
-  <div class="btn-grup">
-    <a href="tel:05321234567" class="btn btn-ana">📞 Ara</a>
-    <a href="https://wa.me/905321234567" class="btn btn-wp">💬 WhatsApp</a>
+    <div class="bilgi-kart"><div class="bi bk1">📞</div><h4>Telefon & Adres</h4><p>0532 123 45 67<br>Muratpaşa, Antalya<br>Her gün 11:00–21:00</p><a href="tel:05321234567" class="bb bb1">Ara</a></div>
+    <div class="bilgi-kart"><div class="bi bk2">💬</div><h4>WhatsApp</h4><p>Rezervasyon ve paket sipariş için 7/24 mesaj atabilirsiniz.</p><a href="https://wa.me/905321234567" class="bb bb2">WhatsApp</a></div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
-<footer>© 2025 Lokanta Mehmet — Antalya</footer>
+<a href="https://wa.me/905321234567" class="wp">💬</a>
+<footer>© 2025 <span>Lokanta Mehmet</span> — Antalya</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>

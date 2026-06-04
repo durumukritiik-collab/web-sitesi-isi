@@ -3,96 +3,204 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Salon Afrodit</title>
+<title>Salon Afrodit — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#fdf5f9;color:#222;}
-:root{--ana:#6a1b4d;--vurgu:#e91e8c;}
+:root{--koyu:#16051a;--mor:#7b1fa2;--mor2:#9c27b0;--altin:#d4a0c0;--krem:#fdf5ff;}
+body{font-family:'Inter',sans-serif;background:var(--krem);color:#1a1a1a;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(22,5,26,.95);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4em;color:white;letter-spacing:2px;font-style:italic;}
+.logo span{color:var(--altin);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--altin);}
+.nav-btn{background:linear-gradient(135deg,var(--mor),var(--mor2));color:white!important;padding:9px 22px;border-radius:25px;font-weight:600!important;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;}
-header a{background:var(--vurgu);color:white;padding:7px 16px;border-radius:20px;text-decoration:none;font-weight:600;font-size:0.85em;}
+.hero{height:100vh;min-height:600px;background:linear-gradient(160deg,#16051a 0%,#2d0a3a 55%,#16051a 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-10%;right:-10%;width:550px;height:550px;background:radial-gradient(circle,rgba(156,39,176,.18) 0%,transparent 60%);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-15%;left:5%;width:400px;height:400px;background:radial-gradient(circle,rgba(212,160,192,.1) 0%,transparent 60%);border-radius:50%;}
+.hero-ic{position:relative;z-index:2;padding:0 40px;max-width:600px;}
+.etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(156,39,176,.15);border:1px solid rgba(156,39,176,.3);color:var(--altin);padding:7px 18px;border-radius:25px;font-size:.8em;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:26px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4em,5.5vw,3.8em);color:white;line-height:1.2;margin-bottom:18px;}
+.hero h1 em{color:var(--altin);font-style:italic;}
+.hero p{color:rgba(255,255,255,.6);font-size:1.05em;line-height:1.8;margin-bottom:32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-m{background:linear-gradient(135deg,var(--mor),var(--mor2));color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;box-shadow:0 4px 20px rgba(123,31,162,.4);transition:transform .2s;}
+.btn-m:hover{transform:translateY(-2px);}
+.btn-o{border:1.5px solid rgba(255,255,255,.2);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:500;transition:all .2s;}
+.btn-o:hover{border-color:var(--altin);color:var(--altin);}
 
-.hero{background:linear-gradient(135deg,#6a1b4d,#ad1457);color:white;text-align:center;padding:55px 20px;}
-.hero h2{font-size:2em;margin-bottom:8px;}
-.hero p{color:#f8bbd0;margin-bottom:22px;}
-.hero-btn{background:white;color:var(--ana);padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+.stats{background:var(--koyu);padding:45px 40px;}
+.stats-ic{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-family:'Playfair Display',serif;font-size:2em;color:var(--altin);margin-bottom:5px;}
+.stat p{color:rgba(255,255,255,.4);font-size:.8em;text-transform:uppercase;letter-spacing:1px;}
 
-.galeri{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;max-width:700px;margin:25px auto;padding:0 20px;}
-.galeri-item{aspect-ratio:4/3;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:3em;}
-.g1{background:#fce4ec;} .g2{background:#f8bbd0;} .g3{background:#f3e5f5;} .g4{background:#e1bee7;}
+.section{padding:75px 40px;max-width:1000px;margin:0 auto;}
+.sb{text-align:center;margin-bottom:45px;}
+.se{display:inline-block;color:var(--mor);font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.sb h2{font-family:'Playfair Display',serif;font-size:2.1em;color:var(--koyu);}
 
-.section{max-width:700px;margin:25px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+.hizmet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.hizmet{background:white;border-radius:20px;padding:26px;box-shadow:0 4px 25px rgba(0,0,0,.06);transition:transform .3s;border:1px solid rgba(0,0,0,.04);}
+.hizmet:hover{transform:translateY(-5px);}
+.h-ust{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.h-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--mor),var(--mor2));border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.3em;}
+.h-fiyat{background:linear-gradient(135deg,var(--mor),var(--mor2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;font-size:1.1em;}
+.hizmet h3{font-size:.95em;font-weight:700;margin-bottom:5px;}
+.hizmet p{font-size:.83em;color:#888;line-height:1.5;}
 
-.hizmet-item{background:white;border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;box-shadow:0 2px 8px rgba(106,27,77,0.07);}
-.hizmet-sol h4{font-weight:700;font-size:0.95em;}
-.hizmet-sol p{font-size:0.8em;color:#888;margin-top:3px;}
-.hizmet-fiyat{background:var(--ana);color:white;padding:5px 14px;border-radius:20px;font-weight:700;font-size:0.9em;white-space:nowrap;}
+.randevu-box{background:linear-gradient(135deg,var(--koyu),#2d0a3a);border-radius:24px;padding:50px;color:white;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.randevu-sol h2{font-family:'Playfair Display',serif;font-size:2em;margin-bottom:14px;line-height:1.3;}
+.randevu-sol h2 em{color:var(--altin);font-style:italic;}
+.randevu-sol p{color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:26px;font-size:.95em;}
+.randevu-btn{display:inline-block;background:linear-gradient(135deg,var(--mor),var(--mor2));color:white;padding:14px 30px;border-radius:25px;text-decoration:none;font-weight:600;box-shadow:0 4px 20px rgba(123,31,162,.4);}
+.randevu-sag{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.randevu-kart{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:20px;text-align:center;}
+.randevu-kart div{font-size:1.8em;margin-bottom:8px;}
+.randevu-kart p{font-size:.8em;color:rgba(255,255,255,.55);}
 
-.randevu-box{background:linear-gradient(135deg,#6a1b4d,#ad1457);color:white;border-radius:16px;padding:28px;text-align:center;}
-.randevu-box h3{margin-bottom:10px;}
-.randevu-box p{opacity:0.9;margin-bottom:20px;font-size:0.95em;}
-.randevu-box a{background:white;color:var(--ana);padding:13px 30px;border-radius:25px;text-decoration:none;font-weight:700;display:inline-block;}
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.gal{border-radius:16px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:3em;transition:transform .3s;}
+.gal:hover{transform:scale(1.03);}
+.gal:nth-child(1){background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.gal:nth-child(2){background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.gal:nth-child(3){background:linear-gradient(135deg,#ede7f6,#d1c4e9);}
+.gal:nth-child(4){background:linear-gradient(135deg,#e8eaf6,#c5cae9);}
+.gal:nth-child(5){background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.gal:nth-child(6){background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
 
-.saatler{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.saat-satir{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #fce4ec;font-size:0.95em;}
-.saat-satir:last-child{border-bottom:none;}
-.acik{color:#2e7d32;font-weight:600;}
-.kapali{color:#c62828;}
+.yorum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.yorum{background:white;border-radius:18px;padding:26px;box-shadow:0 3px 18px rgba(0,0,0,.05);}
+.yy{color:var(--mor);font-size:1em;letter-spacing:3px;margin-bottom:12px;}
+.yt{color:#444;line-height:1.7;font-size:.9em;margin-bottom:16px;font-style:italic;}
+.yk{display:flex;align-items:center;gap:10px;}
+.ya{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--mor),var(--mor2));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:.9em;}
+.yn{font-weight:600;font-size:.88em;}
+.yta{font-size:.76em;color:#aaa;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
-footer{background:var(--ana);color:#f8bbd0;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+.saat-kart{background:var(--koyu);border-radius:24px;padding:40px;color:white;max-width:500px;margin:0 auto;}
+.saat-kart h3{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--altin);margin-bottom:30px;text-align:center;font-style:italic;}
+.saat-satir{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.saat-satir:last-child{border:none;}
+.sg{color:rgba(255,255,255,.65);font-size:.92em;}
+.acik{color:var(--altin);font-weight:600;}
+.kapali{color:#ef5350;}
+
+.ic-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:30px;}
+.ic-kart{background:white;border-radius:18px;padding:28px;text-align:center;box-shadow:0 3px 16px rgba(0,0,0,.06);transition:transform .3s;}
+.ic-kart:hover{transform:translateY(-4px);}
+.ic-ic{width:52px;height:52px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;}
+.ik1{background:linear-gradient(135deg,var(--koyu),#2d0a3a);}
+.ik2{background:linear-gradient(135deg,#1b5e20,#2e7d32);}
+.ic-kart h4{font-weight:600;margin-bottom:5px;}
+.ic-kart p{font-size:.82em;color:#888;margin-bottom:14px;line-height:1.5;}
+.ic-btn{display:inline-block;padding:9px 22px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.82em;}
+.ib1{background:var(--koyu);color:white;}
+.ib2{background:#25d366;color:white;}
+
+.wp{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+footer{background:var(--koyu);color:rgba(255,255,255,.35);text-align:center;padding:28px;font-size:.83em;}
+footer span{color:var(--altin);}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero-ic{padding:0 22px;}.stats-ic{grid-template-columns:repeat(2,1fr);}.section{padding:55px 20px;}.hizmet-grid,.yorum-grid,.ic-grid{grid-template-columns:1fr;}.randevu-box{grid-template-columns:1fr;}.randevu-sag{grid-template-columns:repeat(2,1fr);}.galeri-grid{grid-template-columns:repeat(2,1fr);}}
 </style>
 </head>
 <body>
+<nav id="nav">
+  <div class="logo"><span>Salon</span> Afrodit</div>
+  <div class="nav-links">
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="https://wa.me/905321234567" class="nav-btn">Randevu Al</a>
+  </div>
+</nav>
 
-<header>
-  <h1>💅 SALON AFRODİT</h1>
-  <a href="https://wa.me/905321234567">Randevu Al</a>
-</header>
+<section class="hero">
+  <div class="hero-ic">
+    <div class="etiket">💅 Güzellik & Bakım</div>
+    <h1>Güzelliğiniz Bizim <em>Sanatımız</em></h1>
+    <p>Profesyonel ekip, premium ürünler ve kişiye özel bakımla en güzel halinizi ortaya çıkarıyoruz.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/905321234567" class="btn-m">Randevu Al</a>
+      <a href="#hizmetler" class="btn-o">Hizmetleri Gör</a>
+    </div>
+  </div>
+</section>
 
-<div class="hero">
-  <h2>Güzelliğiniz Bizim İşimiz</h2>
-  <p>Profesyonel ekip, premium ürünler, konforlu ortam</p>
-  <a href="https://wa.me/905321234567" class="hero-btn">Randevu Al</a>
+<div class="stats">
+  <div class="stats-ic">
+    <div class="stat"><h3>12+</h3><p>Yıl Deneyim</p></div>
+    <div class="stat"><h3>1000+</h3><p>Mutlu Müşteri</p></div>
+    <div class="stat"><h3>5★</h3><p>Ortalama Puan</p></div>
+    <div class="stat"><h3>Premium</h3><p>Ürünler</p></div>
+  </div>
 </div>
 
-<div class="galeri">
-  <div class="galeri-item g1">💅</div>
-  <div class="galeri-item g2">💇</div>
-  <div class="galeri-item g3">💆</div>
-  <div class="galeri-item g4">✨</div>
+<div id="hizmetler" class="section">
+  <div class="sb"><div class="se">Neler Yapıyoruz?</div><h2>Hizmetler & Fiyatlar</h2></div>
+  <div class="hizmet-grid">
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">💅</div><span class="h-fiyat">200₺</span></div><h3>Manikür</h3><p>Şekillendirme, bakım ve renklendirme</p></div>
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">🦶</div><span class="h-fiyat">220₺</span></div><h3>Pedikür</h3><p>Tam bakım, masaj dahil</p></div>
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">✨</div><span class="h-fiyat">300₺</span></div><h3>Kalıcı Oje</h3><p>3 hafta kalıcı, 40+ renk seçeneği</p></div>
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">✂️</div><span class="h-fiyat">250₺</span></div><h3>Saç Kesimi</h3><p>Yıkama + fön dahil</p></div>
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">🎨</div><span class="h-fiyat">450₺+</span></div><h3>Saç Boyama</h3><p>Profesyonel boya, rötuş</p></div>
+    <div class="hizmet"><div class="h-ust"><div class="h-icon">💆</div><span class="h-fiyat">400₺</span></div><h3>Cilt Bakımı</h3><p>Yüz masajı + nem bakımı</p></div>
+  </div>
 </div>
 
-<div class="section">
-  <h3>Hizmetler & Fiyatlar</h3>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Manikür</h4><p>Şekillendirme + ojeli</p></div><span class="hizmet-fiyat">200₺</span></div>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Pedikür</h4></div><span class="hizmet-fiyat">220₺</span></div>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Kalıcı Oje</h4><p>3 hafta kalıcı</p></div><span class="hizmet-fiyat">300₺</span></div>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Saç Kesimi</h4></div><span class="hizmet-fiyat">250₺</span></div>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Boya</h4><p>Saç boyama</p></div><span class="hizmet-fiyat">450₺'den</span></div>
-  <div class="hizmet-item"><div class="hizmet-sol"><h4>Cilt Bakımı</h4><p>Yüz masajı dahil</p></div><span class="hizmet-fiyat">400₺</span></div>
-</div>
-
-<div class="section">
+<div class="section" style="padding-top:0;">
   <div class="randevu-box">
-    <h3>📅 Randevu Al</h3>
-    <p>WhatsApp'tan mesaj atın, size en uygun saati ayarlayalım.</p>
-    <a href="https://wa.me/905321234567">💬 WhatsApp Randevu</a>
+    <div class="randevu-sol">
+      <h2>Randevunuzu <em>Kolayca</em> Alın</h2>
+      <p>WhatsApp'tan mesaj atın, size en uygun saati ayarlayalım. 7/24 yanınızdayız.</p>
+      <a href="https://wa.me/905321234567" class="randevu-btn">💬 WhatsApp Randevu</a>
+    </div>
+    <div class="randevu-sag">
+      <div class="randevu-kart"><div>📅</div><p>Esnek Randevu</p></div>
+      <div class="randevu-kart"><div>⏱</div><p>Dakika Almaz</p></div>
+      <div class="randevu-kart"><div>💎</div><p>Premium Ürün</p></div>
+      <div class="randevu-kart"><div>😊</div><p>%100 Memnuniyet</p></div>
+    </div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Çalışma Saatleri</h3>
-  <div class="saatler">
-    <div class="saat-satir"><span>Pazartesi – Cuma</span><span class="acik">09:00 – 20:00</span></div>
-    <div class="saat-satir"><span>Cumartesi</span><span class="acik">09:00 – 18:00</span></div>
-    <div class="saat-satir"><span>Pazar</span><span class="kapali">Kapalı</span></div>
+<div id="galeri" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Çalışmalarımız</div><h2>Galeri</h2></div>
+  <div class="galeri-grid">
+    <div class="gal">💅</div><div class="gal">💇</div><div class="gal">💆</div>
+    <div class="gal">✨</div><div class="gal">💄</div><div class="gal">🌸</div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
-<footer>© 2025 Salon Afrodit — Antalya</footer>
+<div id="yorumlar" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Müşteri Yorumları</div><h2>Ne Diyorlar?</h2></div>
+  <div class="yorum-grid">
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Yıllardır Antalya'da aradığım salonu buldum. Kalıcı ojem 1 ay dayandı!"</div><div class="yk"><div class="ya">N</div><div><div class="yn">Neslihan K.</div><div class="yta">4 gün önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Saç boyama muhteşemdi. Tam istediğim rengi aldım, çok memnunum."</div><div class="yk"><div class="ya">S</div><div><div class="yn">Seda Y.</div><div class="yta">1 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Cilt bakımından sonra cildim çok farklı hissettiriyor. Kesinlikle tavsiye ederim."</div><div class="yk"><div class="ya">B</div><div><div class="yn">Büşra A.</div><div class="yta">2 hafta önce</div></div></div></div>
+  </div>
+</div>
+
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Çalışma Saatleri</div><h2>Ne Zaman Açığız?</h2></div>
+  <div class="saat-kart">
+    <h3>💅 Salon Afrodit</h3>
+    <div class="saat-satir"><span class="sg">Pazartesi – Cuma</span><span class="acik">09:00 – 20:00</span></div>
+    <div class="saat-satir"><span class="sg">Cumartesi</span><span class="acik">09:00 – 18:00</span></div>
+    <div class="saat-satir"><span class="sg">Pazar</span><span class="kapali">Kapalı</span></div>
+  </div>
+  <div class="ic-grid">
+    <div class="ic-kart"><div class="ic-ic ik1">📞</div><h4>Telefon & Adres</h4><p>0532 123 45 67<br>Muratpaşa, Antalya</p><a href="tel:05321234567" class="ic-btn ib1">Ara</a></div>
+    <div class="ic-kart"><div class="ic-ic ik2">💬</div><h4>WhatsApp Randevu</h4><p>7/24 mesaj atın, size dönelim.</p><a href="https://wa.me/905321234567" class="ic-btn ib2">WhatsApp</a></div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="wp">💬</a>
+<footer>© 2025 <span>Salon Afrodit</span> — Antalya</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>

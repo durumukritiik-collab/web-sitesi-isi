@@ -3,99 +3,177 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pastane Rüya</title>
+<title>Pastane Rüya — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#fff0f6;color:#222;}
-:root{--ana:#880e4f;--vurgu:#f8bbd0;}
+:root{--koyu:#1a0510;--pembe:#e91e8c;--pembe2:#f06292;--krem:#fff5fb;}
+body{font-family:'Inter',sans-serif;background:var(--krem);color:#1a1a1a;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(26,5,16,.95);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4em;color:white;letter-spacing:1px;font-style:italic;}
+.logo span{color:var(--pembe2);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--pembe2);}
+.nav-btn{background:linear-gradient(135deg,var(--pembe),var(--pembe2));color:white!important;padding:9px 22px;border-radius:25px;font-weight:600!important;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;}
-header span{font-size:0.8em;color:var(--vurgu);}
+.hero{height:100vh;min-height:600px;background:linear-gradient(160deg,#1a0510 0%,#3d0d2a 60%,#1a0510 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(233,30,140,.15) 0%,transparent 65%);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-20%;left:-5%;width:350px;height:350px;background:radial-gradient(circle,rgba(233,30,140,.08) 0%,transparent 65%);border-radius:50%;}
+.nokta-desen{position:absolute;inset:0;background-image:radial-gradient(rgba(233,30,140,.08) 1px,transparent 1px);background-size:25px 25px;}
+.hero-ic{position:relative;z-index:2;padding:0 40px;max-width:600px;}
+.etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.3);color:var(--pembe2);padding:7px 18px;border-radius:25px;font-size:.8em;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:26px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4em,5.5vw,3.8em);color:white;line-height:1.2;margin-bottom:18px;}
+.hero h1 em{color:var(--pembe2);font-style:italic;}
+.hero p{color:rgba(255,255,255,.6);font-size:1.05em;line-height:1.8;margin-bottom:32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-p{background:linear-gradient(135deg,var(--pembe),var(--pembe2));color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;box-shadow:0 4px 20px rgba(233,30,140,.35);transition:transform .2s;}
+.btn-p:hover{transform:translateY(-2px);}
+.btn-o{border:1.5px solid rgba(255,255,255,.25);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:500;transition:all .2s;}
+.btn-o:hover{border-color:var(--pembe2);color:var(--pembe2);}
 
-.hero{background:linear-gradient(135deg,#880e4f,#c2185b);color:white;text-align:center;padding:55px 20px;}
-.hero h2{font-size:2em;margin-bottom:8px;}
-.hero p{color:#f8bbd0;margin-bottom:22px;}
-.hero-btn{background:white;color:var(--ana);padding:12px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+.stats{background:var(--koyu);padding:45px 40px;}
+.stats-ic{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-family:'Playfair Display',serif;font-size:2em;color:var(--pembe2);margin-bottom:5px;}
+.stat p{color:rgba(255,255,255,.4);font-size:.8em;text-transform:uppercase;letter-spacing:1px;}
 
-.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:700px;margin:25px auto;padding:0 20px;}
-.galeri-item{aspect-ratio:1;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:2.8em;}
-.g1{background:#fce4ec;} .g2{background:#f8bbd0;} .g3{background:#fce4ec;}
-.g4{background:#f8bbd0;} .g5{background:#fce4ec;} .g6{background:#f8bbd0;}
+.section{padding:75px 40px;max-width:1000px;margin:0 auto;}
+.sb{text-align:center;margin-bottom:45px;}
+.se{display:inline-block;color:var(--pembe);font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.sb h2{font-family:'Playfair Display',serif;font-size:2.1em;color:var(--koyu);}
 
-.section{max-width:700px;margin:25px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--ana);padding-left:12px;}
+.urun-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+.urun{background:white;border-radius:20px;overflow:hidden;box-shadow:0 4px 25px rgba(0,0,0,.07);transition:transform .3s;}
+.urun:hover{transform:translateY(-6px);}
+.urun-foto{height:140px;display:flex;align-items:center;justify-content:center;font-size:3.5em;}
+.u1{background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.u2{background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.u3{background:linear-gradient(135deg,#fff8e1,#ffecb3);}
+.u4{background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.u5{background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
+.u6{background:linear-gradient(135deg,#fbe9e7,#ffccbc);}
+.urun-bilgi{padding:18px;}
+.urun-bilgi h3{font-weight:700;font-size:.95em;margin-bottom:5px;}
+.urun-bilgi p{font-size:.8em;color:#888;margin-bottom:12px;}
+.urun-fiyat{font-family:'Playfair Display',serif;color:var(--pembe);font-size:1.15em;font-weight:600;}
 
-.urun-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.urun-kart{background:white;border-radius:14px;padding:18px;box-shadow:0 2px 10px rgba(136,14,79,0.08);text-align:center;}
-.urun-emoji{font-size:2.2em;margin-bottom:8px;}
-.urun-ad{font-weight:700;font-size:0.95em;margin-bottom:4px;}
-.urun-fiyat{color:var(--ana);font-weight:700;font-size:1em;}
-.urun-alt{font-size:0.78em;color:#888;margin-top:3px;}
+.ozel-box{background:linear-gradient(135deg,#1a0510,#3d0d2a);border-radius:24px;padding:50px;color:white;text-align:center;}
+.ozel-box h2{font-family:'Playfair Display',serif;font-size:2em;margin-bottom:14px;}
+.ozel-box h2 em{color:var(--pembe2);font-style:italic;}
+.ozel-box p{color:rgba(255,255,255,.65);line-height:1.8;margin-bottom:30px;font-size:1em;max-width:500px;margin-left:auto;margin-right:auto;}
+.ozel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:30px;}
+.ozel-kart{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:20px;text-align:center;}
+.ozel-kart div{font-size:2em;margin-bottom:8px;}
+.ozel-kart p{font-size:.82em;color:rgba(255,255,255,.6);}
+.ozel-btn{display:inline-block;background:linear-gradient(135deg,var(--pembe),var(--pembe2));color:white;padding:15px 36px;border-radius:30px;text-decoration:none;font-weight:700;box-shadow:0 4px 20px rgba(233,30,140,.4);}
 
-.siparis-banner{background:linear-gradient(135deg,#880e4f,#c2185b);color:white;border-radius:16px;padding:28px;text-align:center;}
-.siparis-banner h3{font-size:1.2em;margin-bottom:10px;}
-.siparis-banner p{opacity:0.9;margin-bottom:18px;font-size:0.95em;line-height:1.5;}
-.siparis-banner a{background:white;color:var(--ana);padding:13px 30px;border-radius:25px;text-decoration:none;font-weight:700;display:inline-block;}
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.gal{border-radius:16px;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:3em;transition:transform .3s;}
+.gal:hover{transform:scale(1.04);}
+.gal:nth-child(1){background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.gal:nth-child(2){background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.gal:nth-child(3){background:linear-gradient(135deg,#fff8e1,#ffecb3);}
+.gal:nth-child(4){background:linear-gradient(135deg,#fbe9e7,#ffccbc);}
+.gal:nth-child(5){background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.gal:nth-child(6){background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
 
-.saatler{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.saat-satir{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #fce4ec;font-size:0.95em;}
-.saat-satir:last-child{border-bottom:none;}
-.acik{color:#2e7d32;font-weight:600;}
+.ic-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ic-kart{background:white;border-radius:18px;padding:28px;text-align:center;box-shadow:0 3px 16px rgba(0,0,0,.06);transition:transform .3s;}
+.ic-kart:hover{transform:translateY(-4px);}
+.ic-ic{width:52px;height:52px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;}
+.ik1{background:linear-gradient(135deg,#1a0510,#3d0d2a);}
+.ik2{background:linear-gradient(135deg,#1b5e20,#2e7d32);}
+.ic-kart h4{font-weight:600;margin-bottom:5px;}
+.ic-kart p{font-size:.82em;color:#888;margin-bottom:14px;line-height:1.5;}
+.ic-btn{display:inline-block;padding:9px 22px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.82em;}
+.ib1{background:var(--koyu);color:white;}
+.ib2{background:#25d366;color:white;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
-footer{background:var(--ana);color:#f8bbd0;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+.wp{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+footer{background:var(--koyu);color:rgba(255,255,255,.35);text-align:center;padding:28px;font-size:.83em;}
+footer span{color:var(--pembe2);}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero-ic{padding:0 22px;}.stats-ic{grid-template-columns:repeat(2,1fr);}.section{padding:55px 20px;}.urun-grid{grid-template-columns:repeat(2,1fr);}.ozel-grid{grid-template-columns:1fr;}.galeri-grid{grid-template-columns:repeat(2,1fr);}.ic-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+<nav id="nav">
+  <div class="logo"><span>Pastane</span> Rüya</div>
+  <div class="nav-links">
+    <a href="#urunler">Ürünler</a>
+    <a href="#ozel">Özel Sipariş</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="https://wa.me/905321234567" class="nav-btn">Sipariş Ver</a>
+  </div>
+</nav>
 
-<header>
-  <h1>🎂 PASTANE RÜYA</h1>
-  <span>Özel günleriniz için</span>
-</header>
+<section class="hero">
+  <div class="nokta-desen"></div>
+  <div class="hero-ic">
+    <div class="etiket">🎂 El Yapımı Pastalar</div>
+    <h1>Her Dilimde <em>Mutluluk</em></h1>
+    <p>Özel günlerinizi unutulmaz kılacak el yapımı pastalar ve tatlılar. Taze malzeme, sevgiyle hazırlama.</p>
+    <div class="hero-btns">
+      <a href="https://wa.me/905321234567" class="btn-p">Sipariş Ver</a>
+      <a href="#urunler" class="btn-o">Ürünleri Gör</a>
+    </div>
+  </div>
+</section>
 
-<div class="hero">
-  <h2>Her Dilimde Mutluluk</h2>
-  <p>El yapımı pastalar, taze malzeme, özel tasarım</p>
-  <a href="https://wa.me/905321234567" class="hero-btn">Sipariş Ver</a>
+<div class="stats">
+  <div class="stats-ic">
+    <div class="stat"><h3>10+</h3><p>Yıl Açığız</p></div>
+    <div class="stat"><h3>50+</h3><p>Çeşit</p></div>
+    <div class="stat"><h3>4.9★</h3><p>Google Puanı</p></div>
+    <div class="stat"><h3>Taze</h3><p>Her Gün</p></div>
+  </div>
 </div>
 
-<div class="galeri">
-  <div class="galeri-item g1">🎂</div>
-  <div class="galeri-item g2">🧁</div>
-  <div class="galeri-item g3">🍰</div>
-  <div class="galeri-item g4">🍮</div>
-  <div class="galeri-item g5">🥐</div>
-  <div class="galeri-item g6">🍩</div>
-</div>
-
-<div class="section">
-  <h3>Ürünlerimiz</h3>
+<div id="urunler" class="section">
+  <div class="sb"><div class="se">Lezzetlerimiz</div><h2>Ürünlerimiz</h2></div>
   <div class="urun-grid">
-    <div class="urun-kart"><div class="urun-emoji">🎂</div><div class="urun-ad">Doğum Günü Pastası</div><div class="urun-fiyat">800₺'den başlayan</div><div class="urun-alt">Özel tasarım</div></div>
-    <div class="urun-kart"><div class="urun-emoji">💒</div><div class="urun-ad">Düğün Pastası</div><div class="urun-fiyat">Fiyat alın</div><div class="urun-alt">Kişiye özel</div></div>
-    <div class="urun-kart"><div class="urun-emoji">🧁</div><div class="urun-ad">Cupcake (12'li)</div><div class="urun-fiyat">450₺</div><div class="urun-alt">Çeşitli tatlar</div></div>
-    <div class="urun-kart"><div class="urun-emoji">🍰</div><div class="urun-ad">Günlük Pasta</div><div class="urun-fiyat">85₺/dilim</div><div class="urun-alt">Her gün taze</div></div>
+    <div class="urun"><div class="urun-foto u1">🎂</div><div class="urun-bilgi"><h3>Doğum Günü Pastası</h3><p>Özel tasarım, kişiye özel</p><div class="urun-fiyat">800₺'den</div></div></div>
+    <div class="urun"><div class="urun-foto u2">💒</div><div class="urun-bilgi"><h3>Düğün Pastası</h3><p>Katlı, özel tasarım</p><div class="urun-fiyat">Fiyat alın</div></div></div>
+    <div class="urun"><div class="urun-foto u3">🧁</div><div class="urun-bilgi"><h3>Cupcake (12'li)</h3><p>Çeşitli tatlar</p><div class="urun-fiyat">450₺</div></div></div>
+    <div class="urun"><div class="urun-foto u4">🍰</div><div class="urun-bilgi"><h3>Günlük Pasta Dilimi</h3><p>Her gün taze</p><div class="urun-fiyat">85₺</div></div></div>
+    <div class="urun"><div class="urun-foto u5">🥐</div><div class="urun-bilgi"><h3>Börek Çeşitleri</h3><p>Peynirli, ıspanaklı</p><div class="urun-fiyat">55₺</div></div></div>
+    <div class="urun"><div class="urun-foto u6">🍩</div><div class="urun-bilgi"><h3>Kurabiye Kutusu</h3><p>500 gr, hediyelik</p><div class="urun-fiyat">250₺</div></div></div>
   </div>
 </div>
 
-<div class="section">
-  <div class="siparis-banner">
-    <h3>🎁 Özel Sipariş</h3>
-    <p>Doğum günü, nişan, düğün veya özel gün pastanız için bize WhatsApp'tan yazın.</p>
-    <a href="https://wa.me/905321234567">💬 WhatsApp'tan Sipariş Ver</a>
+<div id="ozel" class="section" style="padding-top:0;">
+  <div class="ozel-box">
+    <h2>Özel Gününüz için <em>Özel Pasta</em></h2>
+    <p>Doğum günü, nişan, düğün veya kurumsal etkinlikleriniz için tasarım pastalar yapıyoruz.</p>
+    <div class="ozel-grid">
+      <div class="ozel-kart"><div>🎂</div><p>Doğum Günü</p></div>
+      <div class="ozel-kart"><div>💍</div><p>Nişan & Düğün</p></div>
+      <div class="ozel-kart"><div>🎉</div><p>Özel Etkinlik</p></div>
+    </div>
+    <a href="https://wa.me/905321234567" class="ozel-btn">💬 WhatsApp'tan Sipariş Ver</a>
   </div>
 </div>
 
-<div class="section">
-  <h3>Çalışma Saatleri</h3>
-  <div class="saatler">
-    <div class="saat-satir"><span>Pazartesi – Cumartesi</span><span class="acik">09:00 – 20:00</span></div>
-    <div class="saat-satir"><span>Pazar</span><span class="acik">10:00 – 18:00</span></div>
+<div id="galeri" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Çalışmalarımız</div><h2>Galeri</h2></div>
+  <div class="galeri-grid">
+    <div class="gal">🎂</div><div class="gal">🧁</div><div class="gal">🍰</div>
+    <div class="gal">🍮</div><div class="gal">🥐</div><div class="gal">🍩</div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
-<footer>© 2025 Pastane Rüya — Antalya</footer>
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Bize Ulaşın</div><h2>İletişim</h2></div>
+  <div class="ic-grid">
+    <div class="ic-kart"><div class="ic-ic ik1">📞</div><h4>Telefon & Adres</h4><p>0532 123 45 67<br>Muratpaşa, Antalya<br>Pzt–Cmt: 09:00–20:00</p><a href="tel:05321234567" class="ic-btn ib1">Ara</a></div>
+    <div class="ic-kart"><div class="ic-ic ik2">💬</div><h4>WhatsApp Sipariş</h4><p>Özel sipariş için fotoğraf ve ölçü gönderin, fiyat verelim.</p><a href="https://wa.me/905321234567" class="ic-btn ib2">Sipariş Ver</a></div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="wp">💬</a>
+<footer>© 2025 <span>Pastane Rüya</span> — Antalya</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>

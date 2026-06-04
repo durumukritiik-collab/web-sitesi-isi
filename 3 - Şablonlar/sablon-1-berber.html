@@ -3,112 +3,304 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Berber Ali</title>
+<title>Berber Ali — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;color:#222;}
-:root{--ana:#1a1a2e;--vurgu:#c9a84c;}
+:root{--koyu:#0f0f1a;--orta:#1a1a2e;--altin:#c9a84c;--altin2:#e8c96a;--beyaz:#f8f6f0;}
+body{font-family:'Inter',sans-serif;background:#f8f6f0;color:#1a1a1a;overflow-x:hidden;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;letter-spacing:1px;}
-header a{color:var(--vurgu);text-decoration:none;font-weight:600;font-size:0.9em;border:1px solid var(--vurgu);padding:6px 14px;border-radius:20px;}
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(15,15,26,.95);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4em;color:white;letter-spacing:2px;}
+.logo span{color:var(--altin);}
+.nav-links{display:flex;gap:30px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--altin);}
+.nav-randevu{background:var(--altin);color:var(--koyu)!important;padding:9px 22px;border-radius:25px;font-weight:600!important;}
 
-.hero{background:linear-gradient(135deg,#1a1a2e,#2d3561);color:white;text-align:center;padding:60px 20px;}
-.hero h2{font-size:2em;margin-bottom:10px;}
-.hero p{color:#aab;margin-bottom:25px;font-size:1.05em;}
-.hero-btn{background:var(--vurgu);color:#1a1a2e;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:700;font-size:1em;}
+/* HERO */
+.hero{height:100vh;min-height:650px;background:linear-gradient(135deg,#0f0f1a 0%,#1a1a2e 50%,#0d0d1f 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.15) 0%,transparent 70%);border-radius:50%;}
+.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);border-radius:50%;}
+.hero-desen{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(201,168,76,.03) 60px,rgba(201,168,76,.03) 61px);pointer-events:none;}
+.hero-icerik{position:relative;z-index:2;padding:0 40px;max-width:680px;}
+.hero-etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);color:var(--altin);padding:7px 18px;border-radius:25px;font-size:.8em;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:28px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.5em,6vw,4em);color:white;line-height:1.15;margin-bottom:20px;}
+.hero h1 span{color:var(--altin);}
+.hero p{color:rgba(255,255,255,.65);font-size:1.1em;line-height:1.7;margin-bottom:36px;font-weight:300;}
+.hero-butonlar{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-altin{background:linear-gradient(135deg,var(--altin),var(--altin2));color:var(--koyu);padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;font-size:.95em;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 20px rgba(201,168,76,.3);}
+.btn-altin:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(201,168,76,.4);}
+.btn-cizgili{border:1.5px solid rgba(255,255,255,.3);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:500;font-size:.95em;transition:all .2s;}
+.btn-cizgili:hover{border-color:var(--altin);color:var(--altin);}
+.hero-sag{position:absolute;right:0;top:0;bottom:0;width:45%;background:linear-gradient(to left,transparent,transparent);display:flex;align-items:center;justify-content:center;}
+.hero-kart{position:absolute;right:60px;background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px 28px;color:white;min-width:200px;}
+.hero-kart-ust{display:flex;gap:8px;margin-bottom:14px;}
+.hero-kart-ust span{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);}
+.hero-kart h4{font-size:.8em;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.hero-kart .fiyat{font-family:'Playfair Display',serif;font-size:1.8em;color:var(--altin);}
+.hero-kart2{position:absolute;right:200px;top:30%;background:rgba(201,168,76,.1);backdrop-filter:blur(20px);border:1px solid rgba(201,168,76,.2);border-radius:16px;padding:18px 22px;color:white;}
+.yildizlar{color:var(--altin);font-size:1em;letter-spacing:2px;margin-bottom:6px;}
+.hero-kart2 p{font-size:.8em;color:rgba(255,255,255,.7);}
 
-.section{max-width:700px;margin:40px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:20px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+/* STATS */
+.stats{background:var(--koyu);padding:50px 40px;}
+.stats-icerik{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat-item h3{font-family:'Playfair Display',serif;font-size:2.2em;color:var(--altin);margin-bottom:6px;}
+.stat-item p{color:rgba(255,255,255,.5);font-size:.85em;text-transform:uppercase;letter-spacing:1px;}
 
-.hizmet-liste{display:flex;flex-direction:column;gap:12px;}
-.hizmet{background:white;border-radius:12px;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.hizmet-ad{font-weight:600;}
-.hizmet-fiyat{background:var(--ana);color:var(--vurgu);padding:4px 14px;border-radius:20px;font-weight:700;font-size:0.9em;}
+/* SECTION */
+.section{padding:80px 40px;max-width:1000px;margin:0 auto;}
+.section-baslik{text-align:center;margin-bottom:50px;}
+.section-etiket{display:inline-block;color:var(--altin);font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px;}
+.section-baslik h2{font-family:'Playfair Display',serif;font-size:2.2em;color:var(--koyu);}
 
-.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
-.g1{background:#e8e0d5;}
-.g2{background:#d5dce8;}
-.g3{background:#e8d5d5;}
-.g4{background:#d5e8d5;}
-.g5{background:#e8e8d5;}
-.g6{background:#e8d5e8;}
+/* HİZMETLER */
+.hizmet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.hizmet-kart{background:white;border-radius:20px;padding:28px;box-shadow:0 4px 30px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;border:1px solid rgba(0,0,0,.04);}
+.hizmet-kart:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.1);}
+.hizmet-ust{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;}
+.hizmet-icon{width:48px;height:48px;background:linear-gradient(135deg,#1a1a2e,#2d3561);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4em;}
+.hizmet-fiyat{background:linear-gradient(135deg,var(--altin),var(--altin2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700;font-size:1.2em;}
+.hizmet-kart h3{font-size:1em;font-weight:600;margin-bottom:6px;}
+.hizmet-kart p{font-size:.85em;color:#888;line-height:1.5;}
 
-.saatler{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.saat-satir{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:0.95em;}
-.saat-satir:last-child{border-bottom:none;}
-.acik{color:#2e7d32;font-weight:600;}
-.kapali{color:#c62828;}
+/* GALERİ */
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.galeri-kart{border-radius:16px;overflow:hidden;position:relative;aspect-ratio:4/3;background:linear-gradient(135deg,#1a1a2e,#2d3561);display:flex;align-items:center;justify-content:center;font-size:3em;transition:transform .3s;}
+.galeri-kart:hover{transform:scale(1.03);}
+.galeri-kart:nth-child(1){background:linear-gradient(135deg,#1a1a2e,#0d1b4b);}
+.galeri-kart:nth-child(2){background:linear-gradient(135deg,#2d1a3e,#1a0d2e);}
+.galeri-kart:nth-child(3){background:linear-gradient(135deg,#1a2e1a,#0d1f0d);}
+.galeri-kart:nth-child(4){background:linear-gradient(135deg,#2e1a1a,#1f0d0d);}
+.galeri-kart:nth-child(5){background:linear-gradient(135deg,#2e2a1a,#1f1a0d);}
+.galeri-kart:nth-child(6){background:linear-gradient(135deg,#1a2e2e,#0d1f1f);}
+.galeri-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4),transparent);opacity:0;transition:opacity .3s;}
+.galeri-kart:hover .galeri-overlay{opacity:1;}
 
-.iletisim-box{background:var(--ana);color:white;border-radius:12px;padding:25px;text-align:center;}
-.iletisim-box p{color:#aab;margin-bottom:6px;font-size:0.9em;}
-.iletisim-box h4{font-size:1.3em;margin-bottom:20px;}
-.ara-btn{display:inline-block;background:var(--vurgu);color:var(--ana);padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;margin:5px;}
+/* YORUMLAR */
+.yorum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.yorum-kart{background:white;border-radius:20px;padding:28px;box-shadow:0 4px 20px rgba(0,0,0,.05);border:1px solid rgba(0,0,0,.04);}
+.yorum-yildiz{color:var(--altin);font-size:1em;margin-bottom:14px;letter-spacing:3px;}
+.yorum-text{color:#444;line-height:1.7;font-size:.95em;margin-bottom:18px;font-style:italic;}
+.yorum-kisi{display:flex;align-items:center;gap:12px;}
+.yorum-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--orta),#2d3561);display:flex;align-items:center;justify-content:center;color:var(--altin);font-weight:700;}
+.yorum-isim{font-weight:600;font-size:.9em;}
+.yorum-tarih{font-size:.78em;color:#aaa;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
+/* SAATLER */
+.saat-kart{background:var(--koyu);border-radius:24px;padding:40px;color:white;max-width:500px;margin:0 auto;}
+.saat-kart h3{font-family:'Playfair Display',serif;font-size:1.6em;color:var(--altin);margin-bottom:30px;text-align:center;}
+.saat-satir{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.saat-satir:last-child{border:none;}
+.saat-gun{color:rgba(255,255,255,.7);font-size:.95em;}
+.acik{color:var(--altin);font-weight:600;}
+.kapali{color:#ef5350;}
 
-footer{background:var(--ana);color:#888;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+/* İLETİŞİM */
+.iletisim-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.iletisim-kart{background:white;border-radius:20px;padding:30px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.05);transition:transform .3s;}
+.iletisim-kart:hover{transform:translateY(-4px);}
+.iletisim-icon{width:56px;height:56px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.6em;margin:0 auto 14px;}
+.ic-koyu{background:linear-gradient(135deg,#1a1a2e,#2d3561);}
+.ic-yesil{background:linear-gradient(135deg,#1b5e20,#2e7d32);}
+.iletisim-kart h4{font-weight:600;margin-bottom:6px;}
+.iletisim-kart p{font-size:.85em;color:#888;margin-bottom:16px;}
+.iletisim-btn{display:inline-block;padding:10px 24px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.85em;transition:opacity .2s;}
+.iletisim-btn:hover{opacity:.85;}
+.btn-dark{background:var(--koyu);color:white;}
+.btn-green{background:#25d366;color:white;}
+
+/* WHATSAPP */
+.whatsapp-sabit{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+
+/* FOOTER */
+footer{background:var(--koyu);color:rgba(255,255,255,.4);text-align:center;padding:30px;font-size:.85em;border-top:1px solid rgba(255,255,255,.05);}
+footer span{color:var(--altin);}
+
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  nav.scrolled{padding:12px 20px;}
+  .nav-links{display:none;}
+  .hero-icerik{padding:0 24px;}
+  .hero-sag{display:none;}
+  .stats-icerik{grid-template-columns:repeat(2,1fr);}
+  .section{padding:60px 20px;}
+  .hizmet-grid,.yorum-grid{grid-template-columns:1fr;}
+  .galeri-grid{grid-template-columns:repeat(2,1fr);}
+  .iletisim-grid{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>✂ BERBER ALİ</h1>
-  <a href="https://wa.me/905321234567">Randevu Al</a>
-</header>
+<nav id="nav">
+  <div class="logo">BERBER <span>ALİ</span></div>
+  <div class="nav-links">
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="https://wa.me/905321234567" class="nav-randevu">Randevu Al</a>
+  </div>
+</nav>
 
-<div class="hero">
-  <h2>Antalya'nın En İyi Tıraşı</h2>
-  <p>20 yıllık deneyim, modern teknikler</p>
-  <a href="https://wa.me/905321234567" class="hero-btn">WhatsApp'tan Randevu Al</a>
-</div>
+<section class="hero">
+  <div class="hero-desen"></div>
+  <div class="hero-icerik">
+    <div class="hero-etiket">✂ Antalya'nın Ustası</div>
+    <h1>Tarzınızı <span>Biz</span> Belirleriz</h1>
+    <p>20 yıllık deneyim, modern teknikler ve premium ürünlerle saç bakımında fark yaratıyoruz.</p>
+    <div class="hero-butonlar">
+      <a href="https://wa.me/905321234567" class="btn-altin">Randevu Al</a>
+      <a href="#hizmetler" class="btn-cizgili">Hizmetleri Gör</a>
+    </div>
+  </div>
+  <div class="hero-sag">
+    <div class="hero-kart" style="bottom:30%;right:50px;">
+      <div class="hero-kart-ust"><span></span><span></span><span></span></div>
+      <h4>Saç + Sakal</h4>
+      <div class="fiyat">250₺</div>
+    </div>
+    <div class="hero-kart2" style="top:28%;right:220px;">
+      <div class="yildizlar">★★★★★</div>
+      <p>500+ mutlu müşteri</p>
+    </div>
+  </div>
+</section>
 
-<div class="section">
-  <h3>Hizmetler & Fiyatlar</h3>
-  <div class="hizmet-liste">
-    <div class="hizmet"><span class="hizmet-ad">Saç + Sakal</span><span class="hizmet-fiyat">250₺</span></div>
-    <div class="hizmet"><span class="hizmet-ad">Saç Kesimi</span><span class="hizmet-fiyat">150₺</span></div>
-    <div class="hizmet"><span class="hizmet-ad">Sakal Düzeltme</span><span class="hizmet-fiyat">100₺</span></div>
-    <div class="hizmet"><span class="hizmet-ad">Çocuk Kesimi</span><span class="hizmet-fiyat">100₺</span></div>
-    <div class="hizmet"><span class="hizmet-ad">Fön</span><span class="hizmet-fiyat">80₺</span></div>
+<div class="stats">
+  <div class="stats-icerik">
+    <div class="stat-item"><h3>20+</h3><p>Yıl Deneyim</p></div>
+    <div class="stat-item"><h3>500+</h3><p>Mutlu Müşteri</p></div>
+    <div class="stat-item"><h3>5★</h3><p>Ortalama Puan</p></div>
+    <div class="stat-item"><h3>%100</h3><p>Memnuniyet</p></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Galeri</h3>
-  <div class="galeri">
-    <div class="galeri-item g1">💈</div>
-    <div class="galeri-item g2">✂️</div>
-    <div class="galeri-item g3">🪒</div>
-    <div class="galeri-item g4">💈</div>
-    <div class="galeri-item g5">✂️</div>
-    <div class="galeri-item g6">🪒</div>
+<div id="hizmetler" class="section">
+  <div class="section-baslik">
+    <div class="section-etiket">Hizmetlerimiz</div>
+    <h2>Ne Yapıyoruz?</h2>
+  </div>
+  <div class="hizmet-grid">
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">✂️</div><span class="hizmet-fiyat">150₺</span></div>
+      <h3>Saç Kesimi</h3>
+      <p>Yüz şeklinize uygun profesyonel saç kesimi</p>
+    </div>
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">🪒</div><span class="hizmet-fiyat">100₺</span></div>
+      <h3>Sakal Düzeltme</h3>
+      <p>Şekillendirme, düzeltme ve bakım</p>
+    </div>
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">💈</div><span class="hizmet-fiyat">250₺</span></div>
+      <h3>Saç + Sakal Kombo</h3>
+      <p>Eksiksiz bakım paketi, tam görünüm</p>
+    </div>
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">👦</div><span class="hizmet-fiyat">100₺</span></div>
+      <h3>Çocuk Kesimi</h3>
+      <p>Sabırlı ve nazik çocuk saç kesimi</p>
+    </div>
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">💆</div><span class="hizmet-fiyat">80₺</span></div>
+      <h3>Saç Bakımı</h3>
+      <p>Nem, onarım ve canlılık bakımı</p>
+    </div>
+    <div class="hizmet-kart">
+      <div class="hizmet-ust"><div class="hizmet-icon">🎨</div><span class="hizmet-fiyat">300₺+</span></div>
+      <h3>Saç Boyama</h3>
+      <p>Profesyonel boyama ve rötuş</p>
+    </div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Çalışma Saatleri</h3>
-  <div class="saatler">
-    <div class="saat-satir"><span>Pazartesi – Cuma</span><span class="acik">08:00 – 20:00</span></div>
-    <div class="saat-satir"><span>Cumartesi</span><span class="acik">08:00 – 18:00</span></div>
-    <div class="saat-satir"><span>Pazar</span><span class="kapali">Kapalı</span></div>
+<div id="galeri" class="section" style="padding-top:0;">
+  <div class="section-baslik">
+    <div class="section-etiket">Çalışmalarımız</div>
+    <h2>Galeri</h2>
+  </div>
+  <div class="galeri-grid">
+    <div class="galeri-kart">💈<div class="galeri-overlay"></div></div>
+    <div class="galeri-kart">✂️<div class="galeri-overlay"></div></div>
+    <div class="galeri-kart">🪒<div class="galeri-overlay"></div></div>
+    <div class="galeri-kart">💇<div class="galeri-overlay"></div></div>
+    <div class="galeri-kart">💈<div class="galeri-overlay"></div></div>
+    <div class="galeri-kart">✂️<div class="galeri-overlay"></div></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>İletişim</h3>
-  <div class="iletisim-box">
-    <p>Adres</p>
-    <h4>Muratpaşa, Antalya</h4>
-    <a href="tel:05321234567" class="ara-btn">📞 Ara</a>
-    <a href="https://wa.me/905321234567" class="ara-btn">💬 WhatsApp</a>
+<div id="yorumlar" class="section" style="padding-top:0;">
+  <div class="section-baslik">
+    <div class="section-etiket">Müşteri Yorumları</div>
+    <h2>Ne Diyorlar?</h2>
+  </div>
+  <div class="yorum-grid">
+    <div class="yorum-kart">
+      <div class="yorum-yildiz">★★★★★</div>
+      <div class="yorum-text">"Antalya'da gittiğim en iyi berber. Saçım tam istediğim gibi oldu, çok memnun kaldım."</div>
+      <div class="yorum-kisi"><div class="yorum-avatar">A</div><div><div class="yorum-isim">Ahmet K.</div><div class="yorum-tarih">2 gün önce</div></div></div>
+    </div>
+    <div class="yorum-kart">
+      <div class="yorum-yildiz">★★★★★</div>
+      <div class="yorum-text">"Sakal düzeltmesi mükemmeldi. Ustanın elinden sadece işini seven biri olduğu belli."</div>
+      <div class="yorum-kisi"><div class="yorum-avatar">M</div><div><div class="yorum-isim">Murat T.</div><div class="yorum-tarih">1 hafta önce</div></div></div>
+    </div>
+    <div class="yorum-kart">
+      <div class="yorum-yildiz">★★★★★</div>
+      <div class="yorum-text">"Oğlumu getirdim, çocuklarla çok ilgilendi. Bir daha gideceğiz kesinlikle."</div>
+      <div class="yorum-kisi"><div class="yorum-avatar">S</div><div><div class="yorum-isim">Serkan Y.</div><div class="yorum-tarih">3 hafta önce</div></div></div>
+    </div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
+<div class="section" style="padding-top:0;">
+  <div class="section-baslik">
+    <div class="section-etiket">Çalışma Saatleri</div>
+    <h2>Ne Zaman Açığız?</h2>
+  </div>
+  <div class="saat-kart">
+    <h3>✂ Berber Ali</h3>
+    <div class="saat-satir"><span class="saat-gun">Pazartesi – Cuma</span><span class="acik">08:00 – 20:00</span></div>
+    <div class="saat-satir"><span class="saat-gun">Cumartesi</span><span class="acik">08:00 – 18:00</span></div>
+    <div class="saat-satir"><span class="saat-gun">Pazar</span><span class="kapali">Kapalı</span></div>
+  </div>
+</div>
 
-<footer>© 2025 Berber Ali — Tüm hakları saklıdır</footer>
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="section-baslik">
+    <div class="section-etiket">Bize Ulaşın</div>
+    <h2>İletişim</h2>
+  </div>
+  <div class="iletisim-grid">
+    <div class="iletisim-kart">
+      <div class="iletisim-icon ic-koyu">📞</div>
+      <h4>Telefon</h4>
+      <p>0532 123 45 67<br>Muratpaşa, Antalya</p>
+      <a href="tel:05321234567" class="iletisim-btn btn-dark">Hemen Ara</a>
+    </div>
+    <div class="iletisim-kart">
+      <div class="iletisim-icon ic-yesil">💬</div>
+      <h4>WhatsApp</h4>
+      <p>Randevu almak için<br>7/24 mesaj atın</p>
+      <a href="https://wa.me/905321234567" class="iletisim-btn btn-green">WhatsApp'a Yaz</a>
+    </div>
+  </div>
+</div>
 
+<a href="https://wa.me/905321234567" class="whatsapp-sabit">💬</a>
+
+<footer>© 2025 <span>Berber Ali</span> — Antalya. Tüm hakları saklıdır.</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+</script>
 </body>
 </html>

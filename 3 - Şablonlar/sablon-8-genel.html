@@ -3,109 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>İşletme Adı</title>
+<title>İşletme Adı — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#f5f5f5;color:#222;}
-:root{--ana:#2e7d32;--vurgu:#66bb6a;}
+:root{--koyu:#0a1628;--mavi:#1a3a5c;--vurgu:#2196f3;--yesil:#00897b;--krem:#f5f7fa;}
+body{font-family:'Inter',sans-serif;background:var(--krem);color:#1a1a1a;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(10,22,40,.97);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.3);}
+.logo{font-family:'Playfair Display',serif;font-size:1.4em;color:white;letter-spacing:1px;}
+.logo span{color:#64b5f6;}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:#64b5f6;}
+.nav-btn{background:var(--vurgu);color:white!important;padding:9px 22px;border-radius:25px;font-weight:600!important;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;}
-header a{background:var(--vurgu);color:white;padding:7px 16px;border-radius:20px;text-decoration:none;font-weight:600;font-size:0.85em;}
+.hero{height:100vh;min-height:600px;background:linear-gradient(160deg,#0a1628 0%,#1a3a5c 55%,#0a1628 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(33,150,243,.15) 0%,transparent 60%);border-radius:50%;}
+.hero-ic{position:relative;z-index:2;padding:0 40px;max-width:620px;}
+.etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(33,150,243,.15);border:1px solid rgba(33,150,243,.3);color:#64b5f6;padding:7px 18px;border-radius:25px;font-size:.8em;font-weight:500;letter-spacing:1px;text-transform:uppercase;margin-bottom:26px;}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.4em,5.5vw,3.8em);color:white;line-height:1.2;margin-bottom:18px;}
+.hero h1 span{color:#64b5f6;}
+.hero p{color:rgba(255,255,255,.6);font-size:1.05em;line-height:1.8;margin-bottom:32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-v{background:linear-gradient(135deg,var(--vurgu),#42a5f5);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:600;box-shadow:0 4px 20px rgba(33,150,243,.35);transition:transform .2s;}
+.btn-v:hover{transform:translateY(-2px);}
+.btn-o{border:1.5px solid rgba(255,255,255,.25);color:white;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:500;transition:all .2s;}
+.btn-o:hover{border-color:#64b5f6;color:#64b5f6;}
 
-.hero{background:linear-gradient(135deg,#1b5e20,#2e7d32);color:white;text-align:center;padding:55px 20px;}
-.hero h2{font-size:2em;margin-bottom:10px;}
-.hero p{color:#a5d6a7;margin-bottom:24px;font-size:1.05em;}
-.hero-btn{background:white;color:var(--ana);padding:13px 30px;border-radius:30px;text-decoration:none;font-weight:700;}
+.stats{background:var(--koyu);padding:45px 40px;}
+.stats-ic{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-family:'Playfair Display',serif;font-size:2em;color:#64b5f6;margin-bottom:5px;}
+.stat p{color:rgba(255,255,255,.4);font-size:.8em;text-transform:uppercase;letter-spacing:1px;}
 
-.section{max-width:700px;margin:30px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+.section{padding:75px 40px;max-width:1000px;margin:0 auto;}
+.sb{text-align:center;margin-bottom:45px;}
+.se{display:inline-block;color:var(--vurgu);font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;}
+.sb h2{font-family:'Playfair Display',serif;font-size:2.1em;color:var(--koyu);}
 
-.hakkimizda{background:white;border-radius:14px;padding:24px;box-shadow:0 2px 8px rgba(0,0,0,0.06);line-height:1.7;color:#444;}
+.hakkimizda-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.hk-metin p{color:#555;line-height:1.8;font-size:.98em;margin-bottom:16px;}
+.hk-ozellikler{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.hk-oz{background:white;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.05);}
+.hk-oz div{font-size:1.8em;margin-bottom:8px;}
+.hk-oz p{font-size:.82em;font-weight:600;color:#444;}
 
-.hizmet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hizmet-kart{background:white;border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.hizmet-icon{font-size:2em;margin-bottom:10px;}
-.hizmet-ad{font-weight:700;font-size:0.95em;}
-.hizmet-alt{font-size:0.8em;color:#888;margin-top:4px;}
+.hizmet-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;}
+.hizmet{background:white;border-radius:18px;padding:28px;box-shadow:0 4px 22px rgba(0,0,0,.06);transition:transform .3s;text-align:center;}
+.hizmet:hover{transform:translateY(-5px);}
+.h-ic{width:56px;height:56px;background:linear-gradient(135deg,var(--koyu),var(--mavi));border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.5em;margin:0 auto 14px;}
+.hizmet h3{font-size:.95em;font-weight:700;margin-bottom:6px;}
+.hizmet p{font-size:.83em;color:#888;line-height:1.5;}
 
-.galeri{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.galeri-item{aspect-ratio:1;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2.5em;}
-.g1{background:#e8f5e9;} .g2{background:#f1f8e9;} .g3{background:#e0f2f1;}
-.g4{background:#e8eaf6;} .g5{background:#fce4ec;} .g6{background:#fff8e1;}
+.galeri-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.gal{border-radius:16px;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:3em;transition:transform .3s;}
+.gal:hover{transform:scale(1.03);}
+.gal:nth-child(1){background:linear-gradient(135deg,#e3f2fd,#bbdefb);}
+.gal:nth-child(2){background:linear-gradient(135deg,#e8f5e9,#c8e6c9);}
+.gal:nth-child(3){background:linear-gradient(135deg,#f3e5f5,#e1bee7);}
+.gal:nth-child(4){background:linear-gradient(135deg,#fff8e1,#ffecb3);}
+.gal:nth-child(5){background:linear-gradient(135deg,#fce4ec,#f8bbd0);}
+.gal:nth-child(6){background:linear-gradient(135deg,#e0f2f1,#b2dfdb);}
 
-.bilgi-liste{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.bilgi-satir{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f0f0f0;}
-.bilgi-satir:last-child{border-bottom:none;}
-.bilgi-icon{font-size:1.4em;width:36px;text-align:center;}
-.bilgi-text h4{font-size:0.9em;font-weight:700;}
-.bilgi-text p{font-size:0.85em;color:#666;margin-top:2px;}
+.yorum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.yorum{background:white;border-radius:18px;padding:26px;box-shadow:0 3px 18px rgba(0,0,0,.05);}
+.yy{color:#ffc107;font-size:1em;letter-spacing:3px;margin-bottom:12px;}
+.yt{color:#444;line-height:1.7;font-size:.9em;margin-bottom:16px;font-style:italic;}
+.yk{display:flex;align-items:center;gap:10px;}
+.ya{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--koyu),var(--mavi));display:flex;align-items:center;justify-content:center;color:#64b5f6;font-weight:700;font-size:.9em;}
+.yn{font-weight:600;font-size:.88em;}
+.yta{font-size:.76em;color:#aaa;}
 
-.btn-grup{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:20px;}
-.btn{display:inline-block;padding:13px 28px;border-radius:25px;text-decoration:none;font-weight:700;}
-.btn-ana{background:var(--ana);color:white;}
-.btn-wp{background:#25d366;color:white;}
+.ic-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ic-kart{background:white;border-radius:18px;padding:28px;text-align:center;box-shadow:0 3px 16px rgba(0,0,0,.06);transition:transform .3s;}
+.ic-kart:hover{transform:translateY(-4px);}
+.ic-ic{width:52px;height:52px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;}
+.ik1{background:linear-gradient(135deg,var(--koyu),var(--mavi));}
+.ik2{background:linear-gradient(135deg,#1b5e20,#2e7d32);}
+.ic-kart h4{font-weight:600;margin-bottom:5px;}
+.ic-kart p{font-size:.82em;color:#888;margin-bottom:14px;line-height:1.5;}
+.ic-btn{display:inline-block;padding:9px 22px;border-radius:20px;text-decoration:none;font-weight:600;font-size:.82em;}
+.ib1{background:var(--koyu);color:white;}
+.ib2{background:#25d366;color:white;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
-footer{background:var(--ana);color:#a5d6a7;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+.wp{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+footer{background:var(--koyu);color:rgba(255,255,255,.35);text-align:center;padding:28px;font-size:.83em;}
+footer span{color:#64b5f6;}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero-ic{padding:0 22px;}.stats-ic{grid-template-columns:repeat(2,1fr);}.section{padding:55px 20px;}.hakkimizda-grid{grid-template-columns:1fr;}.hizmet-grid{grid-template-columns:repeat(2,1fr);}.galeri-grid{grid-template-columns:repeat(2,1fr);}.yorum-grid,.ic-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+<nav id="nav">
+  <div class="logo">İŞLETME <span>ADI</span></div>
+  <div class="nav-links">
+    <a href="#hakkimizda">Hakkımızda</a>
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="https://wa.me/905321234567" class="nav-btn">İletişim</a>
+  </div>
+</nav>
 
-<header>
-  <h1>🏪 İŞLETME ADI</h1>
-  <a href="https://wa.me/905321234567">İletişim</a>
-</header>
+<section class="hero">
+  <div class="hero-ic">
+    <div class="etiket">🏪 Antalya</div>
+    <h1>Sloganınız <span>Buraya</span></h1>
+    <p>İşletmenizi tanıtan bir veya iki cümle. Müşteriyi içeri çekecek, fark yaratan kısa bir açıklama.</p>
+    <div class="hero-btns">
+      <a href="#hizmetler" class="btn-v">Hizmetleri Gör</a>
+      <a href="https://wa.me/905321234567" class="btn-o">Bize Yazın</a>
+    </div>
+  </div>
+</section>
 
-<div class="hero">
-  <h2>Sloganınız Buraya</h2>
-  <p>Kısa bir tanıtım cümlesi — ne yaptığınızı anlatan bir cümle</p>
-  <a href="https://wa.me/905321234567" class="hero-btn">Bize Ulaşın</a>
-</div>
-
-<div class="section">
-  <h3>Hakkımızda</h3>
-  <div class="hakkimizda">
-    İşletmenizin hikayesi buraya gelir. Kaç yıldır faaliyet gösterdiğiniz, ne tür hizmetler sunduğunuz, müşterilerinize neden güvenilir bir tercih olduğunuz gibi bilgiler burada yer alır.
+<div class="stats">
+  <div class="stats-ic">
+    <div class="stat"><h3>10+</h3><p>Yıl Deneyim</p></div>
+    <div class="stat"><h3>500+</h3><p>Müşteri</p></div>
+    <div class="stat"><h3>5★</h3><p>Puan</p></div>
+    <div class="stat"><h3>%100</h3><p>Memnuniyet</p></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Hizmetlerimiz</h3>
+<div id="hakkimizda" class="section">
+  <div class="sb"><div class="se">Kimiz?</div><h2>Hakkımızda</h2></div>
+  <div class="hakkimizda-grid">
+    <div class="hk-metin">
+      <p>İşletmenizin hikayesi, değerleri ve müşterilere neden tercih edilmesi gerektiği hakkında kısa bir metin buraya gelir.</p>
+      <p>Kaç yıldır hizmet verdiğiniz, uzmanlaştığınız alanlar ve ekibiniz hakkında bilgi verilebilir.</p>
+    </div>
+    <div class="hk-ozellikler">
+      <div class="hk-oz"><div>⭐</div><p>Kaliteli Hizmet</p></div>
+      <div class="hk-oz"><div>🤝</div><p>Güvenilir</p></div>
+      <div class="hk-oz"><div>⚡</div><p>Hızlı</p></div>
+      <div class="hk-oz"><div>💎</div><p>Profesyonel</p></div>
+    </div>
+  </div>
+</div>
+
+<div id="hizmetler" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Ne Yapıyoruz?</div><h2>Hizmetlerimiz</h2></div>
   <div class="hizmet-grid">
-    <div class="hizmet-kart"><div class="hizmet-icon">⭐</div><div class="hizmet-ad">Hizmet 1</div><div class="hizmet-alt">Açıklama</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">🔑</div><div class="hizmet-ad">Hizmet 2</div><div class="hizmet-alt">Açıklama</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">💎</div><div class="hizmet-ad">Hizmet 3</div><div class="hizmet-alt">Açıklama</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">🤝</div><div class="hizmet-ad">Hizmet 4</div><div class="hizmet-alt">Açıklama</div></div>
+    <div class="hizmet"><div class="h-ic">🔑</div><h3>Hizmet 1</h3><p>Bu hizmetin kısa açıklaması buraya gelir.</p></div>
+    <div class="hizmet"><div class="h-ic">⭐</div><h3>Hizmet 2</h3><p>Bu hizmetin kısa açıklaması buraya gelir.</p></div>
+    <div class="hizmet"><div class="h-ic">💎</div><h3>Hizmet 3</h3><p>Bu hizmetin kısa açıklaması buraya gelir.</p></div>
+    <div class="hizmet"><div class="h-ic">🤝</div><h3>Hizmet 4</h3><p>Bu hizmetin kısa açıklaması buraya gelir.</p></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Galeri</h3>
-  <div class="galeri">
-    <div class="galeri-item g1">📸</div>
-    <div class="galeri-item g2">📸</div>
-    <div class="galeri-item g3">📸</div>
-    <div class="galeri-item g4">📸</div>
-    <div class="galeri-item g5">📸</div>
-    <div class="galeri-item g6">📸</div>
+<div id="galeri" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Çalışmalarımız</div><h2>Galeri</h2></div>
+  <div class="galeri-grid">
+    <div class="gal">📸</div><div class="gal">📸</div><div class="gal">📸</div>
+    <div class="gal">📸</div><div class="gal">📸</div><div class="gal">📸</div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Bilgiler</h3>
-  <div class="bilgi-liste">
-    <div class="bilgi-satir"><div class="bilgi-icon">🕐</div><div class="bilgi-text"><h4>Çalışma Saatleri</h4><p>Pzt–Cmt: 09:00–18:00</p></div></div>
-    <div class="bilgi-satir"><div class="bilgi-icon">📍</div><div class="bilgi-text"><h4>Adres</h4><p>Antalya</p></div></div>
-    <div class="bilgi-satir"><div class="bilgi-icon">📞</div><div class="bilgi-text"><h4>Telefon</h4><p>0532 123 45 67</p></div></div>
-  </div>
-  <div class="btn-grup">
-    <a href="tel:05321234567" class="btn btn-ana">📞 Ara</a>
-    <a href="https://wa.me/905321234567" class="btn btn-wp">💬 WhatsApp</a>
+<div id="yorumlar" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Müşteri Yorumları</div><h2>Ne Diyorlar?</h2></div>
+  <div class="yorum-grid">
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Harika hizmet, çok memnun kaldım. Kesinlikle tavsiye ederim."</div><div class="yk"><div class="ya">A</div><div><div class="yn">Ahmet K.</div><div class="yta">1 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Profesyonel ve hızlı hizmet. Fiyatlar da çok uygun."</div><div class="yk"><div class="ya">M</div><div><div class="yn">Mehmet Y.</div><div class="yta">2 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Her zaman gittiğimde memnun ayrılıyorum. Teşekkürler."</div><div class="yk"><div class="ya">S</div><div><div class="yn">Selin A.</div><div class="yta">1 ay önce</div></div></div></div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
-<footer>© 2025 İşletme Adı — Antalya</footer>
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Bize Ulaşın</div><h2>İletişim</h2></div>
+  <div class="ic-grid">
+    <div class="ic-kart"><div class="ic-ic ik1">📞</div><h4>Telefon & Adres</h4><p>0532 123 45 67<br>Antalya<br>Pzt–Cmt: 09:00–18:00</p><a href="tel:05321234567" class="ic-btn ib1">Ara</a></div>
+    <div class="ic-kart"><div class="ic-ic ik2">💬</div><h4>WhatsApp</h4><p>Hızlı iletişim için 7/24 mesaj atabilirsiniz.</p><a href="https://wa.me/905321234567" class="ic-btn ib2">WhatsApp</a></div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="wp">💬</a>
+<footer>© 2025 <span>İşletme Adı</span> — Antalya</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>

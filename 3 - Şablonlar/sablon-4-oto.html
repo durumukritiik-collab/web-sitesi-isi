@@ -3,95 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Usta Garajı</title>
+<title>Usta Garajı — Antalya</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Segoe UI',sans-serif;background:#f0f0f0;color:#222;}
-:root{--ana:#263238;--vurgu:#ff6f00;}
+:root{--koyu:#0d1117;--orta:#1c2333;--turuncu:#ff6f00;--turuncu2:#ff8f00;--gri:#f0f1f3;}
+body{font-family:'Inter',sans-serif;background:var(--gri);color:#1a1a1a;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:999;padding:18px 40px;display:flex;justify-content:space-between;align-items:center;transition:all .3s;}
+nav.scrolled{background:rgba(13,17,23,.97);backdrop-filter:blur(10px);padding:14px 40px;box-shadow:0 2px 20px rgba(0,0,0,.4);}
+.logo{font-family:'Inter',sans-serif;font-size:1.2em;color:white;font-weight:700;letter-spacing:2px;}
+.logo span{color:var(--turuncu);}
+.nav-links{display:flex;gap:28px;align-items:center;}
+.nav-links a{color:rgba(255,255,255,.75);text-decoration:none;font-size:.9em;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--turuncu);}
+.acil-nav{background:var(--turuncu);color:white!important;padding:9px 22px;border-radius:6px;font-weight:700!important;letter-spacing:.5px;}
 
-header{background:var(--ana);color:white;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
-header h1{font-size:1.2em;}
-.acil-btn{background:var(--vurgu);color:white;padding:8px 18px;border-radius:20px;text-decoration:none;font-weight:700;font-size:0.9em;}
+.hero{height:100vh;min-height:600px;background:linear-gradient(160deg,#0d1117 0%,#1c2333 60%,#0d1117 100%);position:relative;display:flex;align-items:center;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:50%;background:radial-gradient(ellipse at 80% 50%,rgba(255,111,0,.1) 0%,transparent 60%);}
+.hex-desen{position:absolute;inset:0;background-image:repeating-linear-gradient(60deg,rgba(255,111,0,.03) 0,rgba(255,111,0,.03) 1px,transparent 0,transparent 50%),repeating-linear-gradient(120deg,rgba(255,111,0,.03) 0,rgba(255,111,0,.03) 1px,transparent 0,transparent 50%);background-size:30px 52px;}
+.hero-ic{position:relative;z-index:2;padding:0 40px;max-width:620px;}
+.etiket{display:inline-flex;align-items:center;gap:8px;background:rgba(255,111,0,.15);border:1px solid rgba(255,111,0,.35);color:var(--turuncu);padding:7px 18px;border-radius:6px;font-size:.78em;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-family:'Inter',sans-serif;font-size:clamp(2.2em,5vw,3.5em);color:white;line-height:1.15;font-weight:700;margin-bottom:18px;}
+.hero h1 span{color:var(--turuncu);}
+.hero p{color:rgba(255,255,255,.55);font-size:1em;line-height:1.8;margin-bottom:32px;font-weight:300;}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-acil{background:linear-gradient(135deg,var(--turuncu),var(--turuncu2));color:white;padding:15px 34px;border-radius:6px;text-decoration:none;font-weight:700;font-size:1em;box-shadow:0 4px 25px rgba(255,111,0,.4);transition:transform .2s,box-shadow .2s;letter-spacing:.5px;}
+.btn-acil:hover{transform:translateY(-2px);box-shadow:0 8px 35px rgba(255,111,0,.5);}
+.btn-wp{border:1.5px solid rgba(255,255,255,.2);color:white;padding:15px 34px;border-radius:6px;text-decoration:none;font-weight:500;transition:all .2s;}
+.btn-wp:hover{border-color:var(--turuncu);color:var(--turuncu);}
 
-.hero{background:linear-gradient(135deg,#263238,#37474f);color:white;text-align:center;padding:50px 20px;}
-.hero h2{font-size:1.9em;margin-bottom:8px;}
-.hero p{color:#90a4ae;margin-bottom:25px;}
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-.btn-turuncu{background:var(--vurgu);color:white;padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
-.btn-beyaz{background:white;color:var(--ana);padding:13px 28px;border-radius:30px;text-decoration:none;font-weight:700;}
+.stats{background:var(--koyu);padding:45px 40px;border-top:1px solid rgba(255,111,0,.15);}
+.stats-ic{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;}
+.stat h3{font-size:2em;color:var(--turuncu);font-weight:700;margin-bottom:5px;}
+.stat p{color:rgba(255,255,255,.4);font-size:.78em;text-transform:uppercase;letter-spacing:2px;}
 
-.section{max-width:700px;margin:30px auto;padding:0 20px;}
-.section h3{font-size:1.2em;font-weight:700;margin-bottom:18px;color:var(--ana);border-left:4px solid var(--vurgu);padding-left:12px;}
+.section{padding:75px 40px;max-width:1000px;margin:0 auto;}
+.sb{text-align:center;margin-bottom:45px;}
+.se{display:inline-block;color:var(--turuncu);font-size:.78em;font-weight:700;text-transform:uppercase;letter-spacing:3px;margin-bottom:10px;}
+.sb h2{font-size:2em;font-weight:700;color:var(--koyu);}
 
-.hizmet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.hizmet-kart{background:white;border-radius:12px;padding:20px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.hizmet-icon{font-size:2em;margin-bottom:10px;}
-.hizmet-ad{font-weight:700;font-size:0.95em;margin-bottom:5px;}
-.hizmet-alt{font-size:0.8em;color:#888;}
+.hizmet-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.hizmet{background:white;border-radius:12px;padding:28px;box-shadow:0 4px 25px rgba(0,0,0,.06);transition:transform .3s,box-shadow .3s;border-top:3px solid transparent;}
+.hizmet:hover{transform:translateY(-5px);box-shadow:0 10px 35px rgba(0,0,0,.1);border-top-color:var(--turuncu);}
+.h-icon{width:52px;height:52px;background:linear-gradient(135deg,var(--koyu),var(--orta));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5em;margin-bottom:16px;}
+.hizmet h3{font-size:1em;font-weight:700;margin-bottom:8px;}
+.hizmet p{font-size:.84em;color:#777;line-height:1.6;}
 
-.banner{background:var(--vurgu);color:white;text-align:center;padding:25px 20px;max-width:700px;margin:0 auto;border-radius:16px;}
-.banner h3{font-size:1.2em;margin-bottom:8px;}
-.banner p{opacity:0.9;margin-bottom:18px;font-size:0.95em;}
-.banner a{background:white;color:var(--vurgu);padding:12px 30px;border-radius:25px;text-decoration:none;font-weight:700;}
+.garanti-box{background:linear-gradient(135deg,var(--koyu),var(--orta));border-radius:20px;padding:45px;color:white;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;}
+.garanti-sol h2{font-size:1.8em;font-weight:700;margin-bottom:14px;line-height:1.3;}
+.garanti-sol h2 span{color:var(--turuncu);}
+.garanti-sol p{color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:24px;font-size:.95em;}
+.garanti-btn{display:inline-block;background:var(--turuncu);color:white;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;transition:transform .2s;}
+.garanti-btn:hover{transform:translateY(-2px);}
+.garanti-sag{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.garanti-kart{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:20px;text-align:center;}
+.garanti-kart h4{color:var(--turuncu);font-size:1.5em;font-weight:700;margin-bottom:5px;}
+.garanti-kart p{color:rgba(255,255,255,.5);font-size:.78em;text-transform:uppercase;letter-spacing:1px;}
 
-.bilgi-liste{background:white;border-radius:12px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,0.06);}
-.bilgi-satir{display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid #f5f5f5;}
-.bilgi-satir:last-child{border-bottom:none;}
-.bilgi-icon{font-size:1.4em;width:36px;text-align:center;}
-.bilgi-text h4{font-size:0.9em;font-weight:700;}
-.bilgi-text p{font-size:0.85em;color:#666;margin-top:2px;}
+.yorum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;}
+.yorum{background:white;border-radius:14px;padding:26px;box-shadow:0 3px 18px rgba(0,0,0,.06);border-left:3px solid var(--turuncu);}
+.yy{color:var(--turuncu);font-size:.95em;letter-spacing:3px;margin-bottom:12px;}
+.yt{color:#444;line-height:1.7;font-size:.9em;margin-bottom:16px;font-style:italic;}
+.yk{display:flex;align-items:center;gap:10px;}
+.ya{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--koyu),var(--orta));display:flex;align-items:center;justify-content:center;color:var(--turuncu);font-weight:700;font-size:.9em;}
+.yn{font-weight:600;font-size:.88em;}
+.yta{font-size:.76em;color:#aaa;}
 
-.whatsapp{position:fixed;bottom:24px;right:24px;background:#25d366;color:white;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6em;text-decoration:none;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:999;}
-footer{background:var(--ana);color:#607d8b;text-align:center;padding:20px;font-size:0.85em;margin-top:40px;}
+.bilgi-satir{display:flex;align-items:center;gap:18px;background:white;border-radius:14px;padding:22px;margin-bottom:12px;box-shadow:0 3px 16px rgba(0,0,0,.05);transition:transform .2s;}
+.bilgi-satir:hover{transform:translateX(4px);}
+.b-icon{width:50px;height:50px;background:linear-gradient(135deg,var(--koyu),var(--orta));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4em;flex-shrink:0;}
+.b-text h4{font-weight:700;font-size:.95em;margin-bottom:3px;}
+.b-text p{font-size:.84em;color:#777;}
+
+.cta{background:linear-gradient(135deg,var(--turuncu),var(--turuncu2));border-radius:20px;padding:45px;text-align:center;color:white;}
+.cta h2{font-size:1.8em;font-weight:700;margin-bottom:12px;}
+.cta p{opacity:.9;margin-bottom:24px;font-size:.95em;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+.cta-btn1{background:white;color:var(--turuncu);padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:700;}
+.cta-btn2{border:2px solid white;color:white;padding:14px 30px;border-radius:6px;text-decoration:none;font-weight:600;}
+
+.wp{position:fixed;bottom:28px;right:28px;background:#25d366;color:white;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.7em;text-decoration:none;box-shadow:0 6px 25px rgba(37,211,102,.5);z-index:998;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{box-shadow:0 6px 25px rgba(37,211,102,.5);}50%{box-shadow:0 6px 35px rgba(37,211,102,.7);}}
+footer{background:var(--koyu);color:rgba(255,255,255,.3);text-align:center;padding:28px;font-size:.83em;}
+footer span{color:var(--turuncu);}
+@media(max-width:768px){nav{padding:16px 20px;}.nav-links{display:none;}.hero-ic{padding:0 22px;}.stats-ic{grid-template-columns:repeat(2,1fr);}.section{padding:55px 20px;}.hizmet-grid{grid-template-columns:1fr;}.garanti-box{grid-template-columns:1fr;}.garanti-sag{grid-template-columns:repeat(2,1fr);}.yorum-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
+<nav id="nav">
+  <div class="logo">USTA <span>GARAJI</span></div>
+  <div class="nav-links">
+    <a href="#hizmetler">Hizmetler</a>
+    <a href="#yorumlar">Yorumlar</a>
+    <a href="#iletisim">İletişim</a>
+    <a href="tel:05321234567" class="acil-nav">📞 Acil Yardım</a>
+  </div>
+</nav>
 
-<header>
-  <h1>🔧 USTA GARAJI</h1>
-  <a href="tel:05321234567" class="acil-btn">📞 Acil Ara</a>
-</header>
+<section class="hero">
+  <div class="hex-desen"></div>
+  <div class="hero-ic">
+    <div class="etiket">🔧 Kepez Sanayi, Antalya</div>
+    <h1>Aracınız <span>Güvende</span></h1>
+    <p>25 yıllık deneyim, garantili işçilik ve uzman kadromuzla aracınızı en iyi şekilde bakıyoruz.</p>
+    <div class="hero-btns">
+      <a href="tel:05321234567" class="btn-acil">📞 Hemen Ara</a>
+      <a href="https://wa.me/905321234567" class="btn-wp">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
 
-<div class="hero">
-  <h2>Aracınız Güvende</h2>
-  <p>25 yıllık tecrübe, garantili işçilik</p>
-  <div class="hero-btns">
-    <a href="tel:05321234567" class="btn-turuncu">📞 Hemen Ara</a>
-    <a href="https://wa.me/905321234567" class="btn-beyaz">💬 WhatsApp</a>
+<div class="stats">
+  <div class="stats-ic">
+    <div class="stat"><h3>25+</h3><p>Yıl Deneyim</p></div>
+    <div class="stat"><h3>3000+</h3><p>Araç Bakımı</p></div>
+    <div class="stat"><h3>6 Ay</h3><p>İşçilik Garantisi</p></div>
+    <div class="stat"><h3>7/24</h3><p>Acil Destek</p></div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Hizmetlerimiz</h3>
+<div id="hizmetler" class="section">
+  <div class="sb"><div class="se">Ne Yapıyoruz?</div><h2>Hizmetlerimiz</h2></div>
   <div class="hizmet-grid">
-    <div class="hizmet-kart"><div class="hizmet-icon">🔧</div><div class="hizmet-ad">Motor Bakım</div><div class="hizmet-alt">Periyodik bakım</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">🛞</div><div class="hizmet-ad">Lastik</div><div class="hizmet-alt">Değişim & tamir</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">⚡</div><div class="hizmet-ad">Elektrik</div><div class="hizmet-alt">Arıza tespit</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">🛑</div><div class="hizmet-ad">Fren Sistemi</div><div class="hizmet-alt">Balata & disk</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">❄️</div><div class="hizmet-ad">Klima</div><div class="hizmet-alt">Bakım & gaz</div></div>
-    <div class="hizmet-kart"><div class="hizmet-icon">🔍</div><div class="hizmet-ad">Arıza Tespit</div><div class="hizmet-alt">Bilgisayar testi</div></div>
+    <div class="hizmet"><div class="h-icon">🔧</div><h3>Motor Bakım</h3><p>Yağ değişimi, filtre, periyodik bakım ve motor revizyonu.</p></div>
+    <div class="hizmet"><div class="h-icon">🛞</div><h3>Lastik Hizmetleri</h3><p>Lastik değişimi, balans ayarı ve rot balans.</p></div>
+    <div class="hizmet"><div class="h-icon">⚡</div><h3>Elektrik & Elektronik</h3><p>Arıza tespit, kablo tamiri ve bilgisayar analizi.</p></div>
+    <div class="hizmet"><div class="h-icon">🛑</div><h3>Fren Sistemi</h3><p>Balata, disk değişimi ve fren hidroliği.</p></div>
+    <div class="hizmet"><div class="h-icon">❄️</div><h3>Klima Bakımı</h3><p>Gaz dolumu, bakım ve arıza giderme.</p></div>
+    <div class="hizmet"><div class="h-icon">🔍</div><h3>Arıza Tespit</h3><p>Profesyonel bilgisayarlı arıza tespit sistemi.</p></div>
   </div>
 </div>
 
-<div class="section">
-  <div class="banner">
-    <h3>🚗 Yol Yardımı</h3>
-    <p>Araç arızalandı mı? Sizi arayalım, çözüm bulalım.</p>
-    <a href="tel:05321234567">Hemen Ara</a>
+<div class="section" style="padding-top:0;">
+  <div class="garanti-box">
+    <div class="garanti-sol">
+      <h2>Tüm İşçilik <span>6 Ay</span> Garantili</h2>
+      <p>Yaptığımız her işi arkasındayız. Sorun çıkarsa ücretsiz düzeltiyoruz.</p>
+      <a href="tel:05321234567" class="garanti-btn">📞 Şimdi Ara</a>
+    </div>
+    <div class="garanti-sag">
+      <div class="garanti-kart"><h4>25+</h4><p>Yıl Tecrübe</p></div>
+      <div class="garanti-kart"><h4>6 Ay</h4><p>Garanti</p></div>
+      <div class="garanti-kart"><h4>7/24</h4><p>Acil Hat</p></div>
+      <div class="garanti-kart"><h4>%100</h4><p>Memnuniyet</p></div>
+    </div>
   </div>
 </div>
 
-<div class="section">
-  <h3>Bilgiler</h3>
-  <div class="bilgi-liste">
-    <div class="bilgi-satir"><div class="bilgi-icon">🕐</div><div class="bilgi-text"><h4>Çalışma Saatleri</h4><p>Pzt–Cmt: 08:00–19:00 / Pazar kapalı</p></div></div>
-    <div class="bilgi-satir"><div class="bilgi-icon">📍</div><div class="bilgi-text"><h4>Adres</h4><p>Kepez Sanayi Sitesi, Antalya</p></div></div>
-    <div class="bilgi-satir"><div class="bilgi-icon">📞</div><div class="bilgi-text"><h4>Telefon</h4><p>0532 123 45 67</p></div></div>
-    <div class="bilgi-satir"><div class="bilgi-icon">✅</div><div class="bilgi-text"><h4>Garanti</h4><p>Tüm işçilik 6 ay garantili</p></div></div>
+<div id="yorumlar" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Müşteri Yorumları</div><h2>Ne Diyorlar?</h2></div>
+  <div class="yorum-grid">
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Aracımın arızasını kimse bulamıyordu, burada dakikalar içinde buldular ve düzelttiler."</div><div class="yk"><div class="ya">A</div><div><div class="yn">Ali R.</div><div class="yta">1 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Fiyatlar çok dürüst, fazladan bir şey ödetmiyorlar. Güvenilir yer."</div><div class="yk"><div class="ya">M</div><div><div class="yn">Mustafa K.</div><div class="yta">2 hafta önce</div></div></div></div>
+    <div class="yorum"><div class="yy">★★★★★</div><div class="yt">"Yol ortasında kaldım, 30 dakikada geldiler. Harika servis."</div><div class="yk"><div class="ya">E</div><div><div class="yn">Emre T.</div><div class="yta">1 ay önce</div></div></div></div>
   </div>
 </div>
 
-<a href="https://wa.me/905321234567" class="whatsapp">💬</a>
-<footer>© 2025 Usta Garajı — Antalya</footer>
+<div id="iletisim" class="section" style="padding-top:0;">
+  <div class="sb"><div class="se">Bize Ulaşın</div><h2>İletişim</h2></div>
+  <div class="bilgi-satir"><div class="b-icon">📞</div><div class="b-text"><h4>Telefon — 7/24 Acil Hat</h4><p>0532 123 45 67 — Yol yardımı dahil</p></div></div>
+  <div class="bilgi-satir"><div class="b-icon">📍</div><div class="b-text"><h4>Adres</h4><p>Kepez Sanayi Sitesi, Antalya</p></div></div>
+  <div class="bilgi-satir"><div class="b-icon">🕐</div><div class="b-text"><h4>Çalışma Saatleri</h4><p>Pazartesi – Cumartesi: 08:00 – 19:00 / Pazar kapalı</p></div></div>
+  <div class="bilgi-satir"><div class="b-icon">✅</div><div class="b-text"><h4>Garanti</h4><p>Tüm işçilik 6 ay garantili, parçalar orijinal</p></div></div>
+  <div class="section" style="padding:30px 0 0;">
+    <div class="cta">
+      <h2>🚗 Yol Yardımına mı İhtiyacınız Var?</h2>
+      <p>Araç arızalandı mı? Hemen arayın, en kısa sürede yanınızdayız.</p>
+      <div class="cta-btns">
+        <a href="tel:05321234567" class="cta-btn1">📞 Hemen Ara</a>
+        <a href="https://wa.me/905321234567" class="cta-btn2">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/905321234567" class="wp">💬</a>
+<footer>© 2025 <span>Usta Garajı</span> — Antalya</footer>
+<script>window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);});</script>
 </body>
 </html>
